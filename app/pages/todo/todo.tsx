@@ -54,7 +54,7 @@ export default function todo() {
 
   return (
     <>
-      <p>{notification}</p>
+      <p className="testcss">{notification}</p>
       <input
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setAddTodo(e.target.value);
