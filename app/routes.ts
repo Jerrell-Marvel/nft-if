@@ -6,4 +6,5 @@ export default [
   route("/sign-up", "pages/user-sign-up/UserSignUp.tsx"),
   route("/sign-in", "pages/user-sign-in/UserSignIn.tsx"),
   route("/admin-sign-up", "pages/admin-sign-up/AdminSignUp.tsx"),
+  route("/admin-sign-in", "pages/admin-sign-in/AdminSignIn.tsx"),
 ] satisfies RouteConfig;
