@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export default function ResetPasswordForm() {
   return (
     <div>
@@ -12,7 +14,13 @@ export default function ResetPasswordForm() {
         id="confirm-new-password"
       />
 
-      <button>Reset</button>
+      <button
+        onClick={() => {
+          toast.success("your password has been reset");
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
