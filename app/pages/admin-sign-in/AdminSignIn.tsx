@@ -18,7 +18,7 @@ export default function AdminSignInPage() {
       />
 
       <Link to="/">Reset password</Link>
-      <Link to="/sign-up">Sign up</Link>
+      <Link to="/admin-sign-up">Sign up</Link>
       <button
         onClick={() => {
           navigate("/");
