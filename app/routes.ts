@@ -9,4 +9,5 @@ export default [
   route("/admin-sign-in", "pages/admin-sign-in/AdminSignIn.tsx"),
   route("/reset-password", "pages/reset-password/ResetPassword.tsx"),
   route("/reset-password/form", "pages/reset-password-form/ResetPasswordForm.tsx"),
+  route("/purchase/:nftId", "pages/purchase/Purchase.tsx"),
 ] satisfies RouteConfig;
