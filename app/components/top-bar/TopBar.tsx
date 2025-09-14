@@ -1,8 +1,8 @@
-import React from "react";
+import "./topbar.scss";
 
 export default function TopBar() {
   return (
-    <div>
+    <nav className="top-bar">
       <input
         type="text"
         placeholder="search"
@@ -10,6 +10,6 @@ export default function TopBar() {
 
       <button>Cart</button>
       <button>Avatar</button>
-    </div>
+    </nav>
   );
 }

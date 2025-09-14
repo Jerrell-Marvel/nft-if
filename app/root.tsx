@@ -18,6 +18,7 @@ export const links: Route.LinksFunction = () => [
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TopBar from "./components/top-bar/TopBar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,6 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           theme="dark"
           position="top-center"
         />
+        <TopBar />
         {children}
         <ScrollRestoration />
         <Scripts />

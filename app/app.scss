@@ -133,3 +133,11 @@ table {
 body {
   font-family: "Poppins", sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.nav-padding {
+  padding-top: 4rem !important;
+}

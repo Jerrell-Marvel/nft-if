@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Route } from "./+types/Home";
 import "./home.scss";
+import { useSearchParams } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
@@ -9,12 +10,26 @@ export function meta({}: Route.MetaArgs) {
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
 
 export default function Home() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedImage, setSelectedImage] = useState(imgUrls[0]);
-  const [displayMode, setDisplayMode] = useState("normal");
+
+  const getActiveDisplay = () => {
+    const displayValue = searchParams.get("display");
+    if (displayValue === "collection") {
+      return displayValue;
+    }
+    return "single";
+  };
+
+  const changeDisplay = () => {
+    setSearchParams({
+      display: getActiveDisplay() === "single" ? "collection" : "single",
+    });
+  };
 
   return (
     <main className="main-container">
-      <div className="left-container">
+      <div className="left-container nav-padding">
         <div>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
 
@@ -30,9 +45,18 @@ export default function Home() {
 
         <button>Detail</button>
       </div>
-      <div className="right-container">
+      <div className="right-container nav-padding">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, rem.</p>
-        <div className="img-container">
+
+        <p>display : {getActiveDisplay()}</p>
+        <button onClick={changeDisplay}>{getActiveDisplay() === "single" ? "collections" : "single"}</button>
+
+        <div
+          className="img-container"
+          style={{
+            backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
+          }}
+        >
           {imgUrls.map((imgUrl) => {
             return (
               <img
