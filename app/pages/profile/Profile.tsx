@@ -2,7 +2,7 @@ import "./profile.scss";
 
 export default function Profile() {
   return (
-    <main className="nav-padding">
+    <main className="profile-page nav-padding">
       <p>Profile</p>
 
       <img src="/1.jpg" />

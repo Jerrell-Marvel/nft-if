@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 export default function UserSignUpPage() {
   let navigate = useNavigate();
   return (
-    <div>
+    <div className="user-sign-up-page">
       <h1>User sign up</h1>
 
       <label htmlFor="email">email</label>

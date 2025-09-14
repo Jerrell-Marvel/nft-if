@@ -24,7 +24,7 @@ const nfts = [
 
 export default function Cart() {
   return (
-    <main className="nav-padding">
+    <main className="cart-page nav-padding">
       {nfts.map((nft) => {
         return (
           <div className="cart-item">

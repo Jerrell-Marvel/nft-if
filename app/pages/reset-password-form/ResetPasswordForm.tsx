@@ -1,8 +1,9 @@
 import { toast } from "react-toastify";
+import "./resetPassword.scss";
 
 export default function ResetPasswordForm() {
   return (
-    <div>
+    <div className="reset-password-form-page">
       <label htmlFor="new-password">new password</label>
       <input
         type="password"

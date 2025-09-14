@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router";
+import "./AdminSignIn.scss";
 
 export default function AdminSignInPage() {
   let navigate = useNavigate();
   return (
-    <div className="main-container">
+    <div className="admin-sign-in-page main-container">
       <h1>Admin login</h1>
 
       <label htmlFor="email">email</label>

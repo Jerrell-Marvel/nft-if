@@ -29,7 +29,7 @@ const nftProperties = [
 export default function Purchase() {
   const { nftId } = useParams();
   return (
-    <main className="nav-padding">
+    <main className="purchase-page nav-padding">
       <p>nft id : {nftId}</p>
 
       <div className="main-container">

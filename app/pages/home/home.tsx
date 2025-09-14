@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Route } from "./+types/Home";
 import "./home.scss";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   return (
-    <main className="main-container">
+    <main className="home-page main-container">
       <div className="left-container nav-padding">
         <div>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
@@ -43,7 +43,9 @@ export default function Home() {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, cum!</p>
         </div>
 
-        <button>Detail</button>
+        <Link to="/purchase/1123123">
+          <button>Detail</button>
+        </Link>
       </div>
       <div className="right-container nav-padding">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, rem.</p>
