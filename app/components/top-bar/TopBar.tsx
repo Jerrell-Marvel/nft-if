@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./topbar.scss";
 
 export default function TopBar() {
@@ -20,7 +20,7 @@ export default function TopBar() {
       </form>
 
       <button>Cart</button>
-      <button>Avatar</button>
+      <Link to="/profile">Avatar</Link>
     </nav>
   );
 }
