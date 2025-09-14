@@ -1,0 +1,36 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+
+  .left-container {
+    position: sticky;
+    top: 0px;
+    min-height: 100vh;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .right-container {
+    .img-container {
+      background-color: blue;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .page-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.img-item {
+  width: 100%;
+}

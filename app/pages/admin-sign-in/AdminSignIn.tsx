@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 export default function AdminSignInPage() {
   let navigate = useNavigate();
   return (
-    <div>
+    <div className="main-container">
       <h1>Admin login</h1>
 
       <label htmlFor="email">email</label>
