@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import "./purchase.scss";
 
 // const nftProperty = {
@@ -54,7 +54,9 @@ export default function Purchase() {
         <div className="right-container">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum magnam nisi recusandae tempore rerum commodi consectetur deserunt nihil, tenetur ratione.</p>
 
-          <button>Add to cart</button>
+          <Link to={"/cart"}>
+            <button>Add to cart</button>
+          </Link>
         </div>
       </div>
     </main>
