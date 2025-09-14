@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    border: 1px solid black;
+
+    img {
+      height: 10vh;
+    }
+  }
+}
