@@ -1,12 +1,23 @@
+import { useNavigate } from "react-router";
 import "./topbar.scss";
 
 export default function TopBar() {
+  const navigate = useNavigate();
   return (
     <nav className="top-bar">
-      <input
-        type="text"
-        placeholder="search"
-      />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate("/");
+        }}
+      >
+        <input
+          type="text"
+          placeholder="search"
+        />
+
+        <button type="submit">Search</button>
+      </form>
 
       <button>Cart</button>
       <button>Avatar</button>
