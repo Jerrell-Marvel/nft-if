@@ -37,7 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           theme="dark"
           position="top-center"
         />
-        <TopBar />
+        {/* <TopBar /> */}
         {children}
         <ScrollRestoration />
         <Scripts />
