@@ -4,29 +4,39 @@ import "./AdminSignIn.scss";
 export default function AdminSignInPage() {
   let navigate = useNavigate();
   return (
-    <div className="admin-sign-in-page main-container">
-      <h1>Admin login</h1>
+    <div className="admin-sign-in-page nav-padding">
+      <div className="main-container">
+        <h1 className="gradient-text">Admin Login</h1>
 
-      <label htmlFor="email">email</label>
-      <input
-        type="text"
-        id="email"
-      />
-      <label htmlFor="password">password</label>
-      <input
-        type="password"
-        id="password"
-      />
+        <div className="gradient-line"></div>
 
-      <Link to="/">Reset password</Link>
-      <Link to="/admin-sign-up">Sign up</Link>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Sign in
-      </button>
+        <div className="input-item">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            id="email"
+          />
+        </div>
+
+        <div className="input-item">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+          />
+        </div>
+
+        <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          className="btn"
+        >
+          Sign in
+        </button>
+        <span className="sign-up-wrapper">Don't have an account? <Link to="/sign-up" className="gradient-text sign-up">Sign up</Link></span>
+      </div>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function UserSignInPage() {
           />
         </div>
 
-        <Link to="/" className="reset-password gradient-text">Forget password?</Link>
+        <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
         <button
           onClick={() => {
             navigate("/");
