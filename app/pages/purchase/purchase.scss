@@ -1,0 +1,11 @@
+.purchase-page {
+  .main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .img-item {
+    width: 100%;
+  }
+}

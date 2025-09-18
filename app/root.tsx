@@ -16,6 +16,10 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import TopBar from "./components/top-bar/TopBar";
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -29,6 +33,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <ToastContainer
+          theme="dark"
+          position="top-center"
+        />
+        {/* <TopBar /> */}
         {children}
         <ScrollRestoration />
         <Scripts />
