@@ -12,21 +12,17 @@ export default function AdminSignInPage() {
 
         <div className="input-item">
           <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            id="email"
-          />
+          <input type="text" id="email" />
         </div>
 
         <div className="input-item">
           <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-          />
+          <input type="password" id="password" />
         </div>
 
-        <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
+        <Link to="/reset-password" className="reset-password gradient-text">
+          Forget password?
+        </Link>
         <button
           onClick={() => {
             navigate("/");
@@ -35,7 +31,12 @@ export default function AdminSignInPage() {
         >
           Sign in
         </button>
-        <span className="sign-up-wrapper">Don't have an account? <Link to="/sign-up" className="gradient-text sign-up">Sign up</Link></span>
+        <span className="sign-up-wrapper">
+          Don't have an account?{" "}
+          <Link to="/admin-sign-up" className="gradient-text sign-up">
+            Sign up
+          </Link>
+        </span>
       </div>
     </div>
   );
