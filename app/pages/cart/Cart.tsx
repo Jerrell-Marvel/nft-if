@@ -27,19 +27,19 @@ export default function Cart() {
     <main className="cart-page nav-padding">
       {nfts.map((nft) => {
         return (
-          <div className="cart-item">
-            <img src={nft.imgUrl} />
+          <div className="cart-item glow-hover">
+            <img src={nft.imgUrl} className="glow-hover" />
 
-            <div>
-              <p>{nft.name}</p>
+            <div className="cart-item-info">
+              <p className="gradient-text">{nft.name}</p>
 
-              <button>Delete</button>
+              <button className="delete-button glow-hover">Delete</button>
             </div>
           </div>
         );
       })}
 
-      <div>
+      <div className="checkout">
         <label htmlFor="wallet">Choose a wallet:</label>
         <select
           name="wallet"
@@ -50,7 +50,7 @@ export default function Cart() {
           <option value="wallet 3">wallet 3</option>
           <option value="wallet 4">wallet 4</option>
         </select>
-        <button>Checkout</button>
+        <button className="glow-hover">Checkout</button>
       </div>
     </main>
   );
