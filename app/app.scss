@@ -145,3 +145,19 @@ input {
 .nav-padding {
   padding-top: 4rem !important;
 }
+
+.gradient-text {
+  background-image: linear-gradient(to right, #00b5d8, #3b82f6); /* from-cyan-500 to-blue-500 */
+  background-clip: text;
+  color: transparent !important;
+  line-height: 1.2;
+}
+
+.btn{
+  padding: 0.6rem 0.3rem;
+  background-image: linear-gradient(to right, #00b5d8, #3b82f6);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
