@@ -8,25 +8,27 @@ export default function ResetPasswordPage() {
   const navigate = useNavigate();
   return (
     <div className="reset-password-page">
-      <label htmlFor="email">email</label>
-      <input
-        type="text"
-        id="email"
-      />
+      <h2>Reset Password</h2>
+      <p>Please enter your email to reset password</p>
 
-      {isShowNotif ? <p>Verification has been sent to your email</p> : null}
+      <div className="form-group">
+        {/* <label htmlFor="email">Enter your email :</label> */}
+        <input
+          type="text"
+          id="email"
+        />
+      </div>
+
+      
 
       <button
-        onClick={() => {
-          setIsShowNotif(true);
-
-          setTimeout(() => {
-            navigate("/reset-password/form");
-          }, 3000);
-        }}
-      >
-        Reset
-      </button>
+      onClick={() => {
+        setIsShowNotif(true);
+        navigate("/reset-password/form");
+      }}
+>
+  Reset
+</button>
     </div>
   );
 }
