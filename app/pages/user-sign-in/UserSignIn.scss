@@ -33,11 +33,7 @@
 
     .gradient-line {
       height: 2px; /* Adjust the thickness of the line */
-      background-image: linear-gradient(
-        to right,
-        #00b5d8,
-        #3b82f6
-      ); /* Gradient color */
+      background-image: linear-gradient(to right, #00b5d8, #3b82f6); /* Gradient color */
       border: none; /* Remove any default borders */
       width: 100%; /* Full width */
       margin: 0.2rem;
@@ -56,16 +52,16 @@
       font-size: 0.7rem;
     }
 
-    .reset-password {
-      text-align: right;
+    .reset-password{
+        text-align: right;
 
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: #00b5d8;
-      }
+        &:hover{
+          text-decoration: underline;
+          text-decoration-color: #00b5d8;
+        }
     }
 
-    .sign-up:hover {
+    .sign-up:hover{
       text-decoration: underline;
       text-decoration-color: #00b5d8;
     }

@@ -1,2 +1,133 @@
 .user-sign-up-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
+  background-color: #1a202c;
+  // background-image: url("../../../public/login-bg.png");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // gap: 1rem;
+    width: 100vw;
+    // height: 100vh;
+    justify-items: center;
+    max-width: 1440px;
+    margin: 0;
+
+    .img-item {
+      background-image: url("../../../public/sign-up-bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .form-container {
+      // background-color: #484d57;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1.5rem;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 30vw;
+      // min-width: 20vw;
+      justify-content: left;
+
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding: 1rem;
+        font-weight: bold;
+      }
+      //   width: 50%;
+
+      input {
+        //   background-color: rgb(236, 236, 236);
+        padding: 0.5rem;
+        border-radius: 8px;
+      }
+
+      .gradient-line {
+        height: 2px;
+        background-image: linear-gradient(to right, #00b5d8, #3b82f6);
+        border: none;
+        width: 100%;
+        margin: 0.2rem;
+      }
+
+      .input-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        #file-name {
+          margin-top: 8px;
+          font-size: 0.9rem;
+          color: #c7c7c7;
+          font-style: italic;
+        }
+
+        .secondary-btn {
+          padding: 0.6rem 0.3rem;
+          background-color: transparent;
+          border: 2px solid transparent;
+          background-image:
+            linear-gradient(rgba(127, 87, 87, 0), rgba(129, 96, 96, 0)),
+            linear-gradient(to right, #00b5d8, #3b82f6);
+          background-origin: border-box;
+          background-clip: content-box, border-box;
+          box-shadow: 2px 1000px 1px #1a202c inset;
+          border-radius: 8px;
+          color: #00b5d8;
+          cursor: pointer;
+          // font-weight: bold;
+          transition: all 0.3s ease;
+
+          &:hover {
+            box-shadow: 2px 1000px 1px #484d5700 inset;
+            color: white;
+          }
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+      }
+
+      a {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        font-size: 0.7rem;
+      }
+
+      .sign-up:hover {
+        text-decoration: underline;
+        text-decoration-color: #00b5d8;
+      }
+
+      .sign-up-wrapper {
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .user-sign-in-page {
+    padding: 2rem;
+    .main-container {
+      width: 100%;
+    }
+  }
 }
