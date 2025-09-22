@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router";
-import "./UserSignIn.scss";
+import { Link, useNavigate } from 'react-router'
+import './UserSignIn.scss'
 
 export default function UserSignInPage() {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
   return (
     <div className="user-sign-in-page nav-padding">
       <div className="main-container">
@@ -29,7 +29,7 @@ export default function UserSignInPage() {
         <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
         <button
           onClick={() => {
-            navigate("/");
+            navigate('/')
           }}
           className="btn"
         >
@@ -38,5 +38,5 @@ export default function UserSignInPage() {
         <span className="sign-up-wrapper">Don't have an account? <Link to="/sign-up" className="gradient-text sign-up">Sign up</Link></span>
       </div>
     </div>
-  );
+  )
 }
