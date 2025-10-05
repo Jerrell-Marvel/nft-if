@@ -18,7 +18,7 @@ export default function AdminSignInPage() {
   return (
     <div className="admin-sign-in-page nav-padding">
       <div className="main-container">
-        <h1 className="gradient-text">Sign In</h1>
+        <h1 className="gradient-text">Admin Sign In</h1>
 
         <div className="gradient-line"></div>
 
