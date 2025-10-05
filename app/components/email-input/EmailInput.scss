@@ -1,0 +1,5 @@
+@use "../../variables.scss" as var;
+
+.email-error-msg {
+  color: var.$error-red;
+}

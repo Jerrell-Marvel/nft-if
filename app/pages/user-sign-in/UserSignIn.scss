@@ -1,10 +1,12 @@
+@use "../../variables.scss" as var;
+
 .user-sign-in-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-image: url('../../../public/login-bg.png');
+  background-image: url("../../../public/login-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   //   background: black;
@@ -45,11 +47,32 @@
       gap: 0.5rem;
     }
 
-    .forget-password-wrapper{
+    // .email-error-msg {
+    //   color: var.$error-red;
+    // }
+
+    // .password-wrapper {
+    //   position: relative;
+    //   input {
+    //     width: 100%;
+    //   }
+
+    //   .eye-icon {
+    //     position: absolute;
+    //     right: 5%;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    //     z-index: 99;
+    //     color: black;
+    //     cursor: pointer;
+    //   }
+    // }
+
+    .forget-password-wrapper {
       display: flex;
       justify-content: right;
       a {
-        width:fit-content;
+        width: fit-content;
         align-items: right;
         text-decoration: none;
         color: white;
@@ -57,18 +80,16 @@
       }
     }
 
-    
+    .reset-password {
+      text-align: right;
 
-    .reset-password{
-        text-align: right;
-
-        &:hover{
-          text-decoration: underline;
-          text-decoration-color: #00b5d8;
-        }
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: #00b5d8;
+      }
     }
 
-    .sign-up:hover{
+    .sign-up:hover {
       text-decoration: underline;
       text-decoration-color: #00b5d8;
     }

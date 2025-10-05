@@ -8,6 +8,7 @@
   // position: relative;
   background-color: var.$primary-black;
   padding: 2rem;
+  // padding: 0 2rem;
 
   .left-container {
     // margin:1rem;
@@ -15,7 +16,7 @@
     position: sticky;
     top: 6.5rem;
     align-self: start;
-    min-height: calc(100vh - 6.5rem);
+    min-height: calc(100vh - 8.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,30 +27,27 @@
     border: 1px solid #374151;
     border-radius: 0.5rem;
     padding: 1.5rem;
-    div{
-      h1{
+    div {
+      h1 {
         font-size: 1.5rem;
       }
-      p{
+      p {
         font-size: 0.9rem;
       }
     }
-    .img-item{
+    .img-item {
       width: 80%;
       display: flex;
       align-items: center;
     }
-    .btn{
+    .btn {
       width: 100%;
     }
     .nft-desc-container {
       padding-top: 1rem;
-    justify-items: center;
+      justify-items: center;
     }
   }
-
-  
-  
 
   .right-container {
     padding: 1rem;
@@ -62,7 +60,7 @@
     // height: 2000dvh;
     text-align: center;
 
-    .type-container{
+    .type-container {
       // width: 80%;
       display: flex;
       justify-content: space-between;
@@ -70,7 +68,7 @@
       padding: 1rem 0rem;
     }
 
-    h1{
+    h1 {
       font-size: 1.5rem;
     }
 
@@ -79,11 +77,11 @@
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
       // width: 80%;
-      .img-item{
+      .img-item {
         cursor: pointer;
       }
     }
-    
+
     .page-container {
       display: flex;
       justify-content: space-between;
@@ -91,23 +89,22 @@
       padding: 1rem 0rem;
       width: 100%;
     }
-    .btn-container{
-
+    .btn-container {
       display: flex;
       gap: 1rem;
-      .btn{
+      .btn {
         width: 4rem;
       }
     }
   }
-  
+
   .img-item {
     width: 100%;
   }
-  .page-container{
+  .page-container {
     width: 80%;
     justify-content: center;
-    .btn{
+    .btn {
       width: 4rem;
     }
   }
