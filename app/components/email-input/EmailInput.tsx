@@ -1,6 +1,5 @@
 import React, { useState, type ChangeEvent } from "react";
 import { isValidEmail } from "utils/validator";
-import "./EmailInput.scss";
 
 type EmailInputProps = {
   value: string;
@@ -29,7 +28,7 @@ export default function EmailInput({ onChange, value }: EmailInputProps) {
         onChange={handleEmailChange}
       />
 
-      <span className="email-error-msg">{emailErrorMsg}</span>
+      <span className="error-text">{emailErrorMsg}</span>
     </>
   );
 }

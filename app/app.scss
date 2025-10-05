@@ -1,7 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@use "./variables.scss" as var;
 
 html,
 body,
@@ -166,6 +163,10 @@ input {
   background-image: none;
   background-color: gray !important;
   cursor: auto;
+}
+
+.error-text {
+  color: var.$error-red;
 }
 
 $primary-black: rgb(1, 10, 2);

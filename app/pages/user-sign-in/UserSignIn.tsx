@@ -11,19 +11,8 @@ export default function UserSignInPage() {
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [emailErrorMsg, setEmailErrorMsg] = useState("");
+  // const [emailErrorMsg, setEmailErrorMsg] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("here");
-    if (isValidEmail(e.target.value)) {
-      setEmailErrorMsg("");
-    } else {
-      setEmailErrorMsg("Please enter a valid email address");
-    }
-
-    setEmail(e.target.value);
-  };
 
   return (
     <div className="user-sign-in-page nav-padding">
@@ -40,9 +29,10 @@ export default function UserSignInPage() {
         </div>
 
         <div className="input-item ">
-          <label htmlFor="password">Password</label>
-
-          <PasswordInput onChange={setPassword} />
+          <PasswordInput
+            onChange={setPassword}
+            value={password}
+          />
         </div>
 
         <div className="forget-password-wrapper">
@@ -57,8 +47,8 @@ export default function UserSignInPage() {
           onClick={() => {
             navigate("/");
           }}
-          className={`btn ${!password || emailErrorMsg ? "disabled-btn" : ""}`}
-          disabled={!password || emailErrorMsg ? true : false}
+          className={`btn ${!password || !isValidEmail(email) ? "disabled-btn" : ""}`}
+          disabled={!password || !isValidEmail(email) ? true : false}
         >
           Sign in
         </button>
