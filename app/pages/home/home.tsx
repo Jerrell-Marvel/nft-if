@@ -15,48 +15,52 @@ export default function Home() {
 
   const getActiveDisplay = () => {
     const displayValue = searchParams.get("display");
-    if (displayValue === "collection") {
+    if (displayValue === "Collection") {
       return displayValue;
     }
-    return "single";
+    return "Single";
   };
 
   const changeDisplay = () => {
     setSearchParams({
-      display: getActiveDisplay() === "single" ? "collection" : "single",
+      display: getActiveDisplay() === "Single" ? "Collection" : "Single",
     });
   };
 
   return (
-    <main className="home-page main-container">
-      <div className="left-container nav-padding">
+    <main className="home-page main-container nav-padding">
+      <div className="left-container">
         <div>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <h1 className="gradient-text">Mountain Cliffs NFT</h1>
 
-          <img
-            src={selectedImage}
-            className="img-item"
-          />
+          <div className="nft-desc-container">
+            <img
+              src={selectedImage}
+              className="img-item"
+            />
 
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam tempora sit consequuntur. Dignissimos numquam ullam eos autem doloremque, suscipit beatae.</p>
-
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, cum!</p>
+            <p className="gradient-text">A dramatic coastal scene where towering white cliffs meet the restless ocean. The cliffs rise steeply from the narrow strip of beach, their faces streaked with earthy tones and patches of greenery. 
+              {/* A soft mist hangs over the scene, partially veiling the cliff tops and lending the landscape a mysterious, almost ethereal quality. The sea below rolls gently against the shore, its dark blue surface  */}
+              breaking into white foam as waves lap onto the sand. The coastline curves gracefully into the distance, giving a sense of both grandeur and solitude, as if this rugged place belongs more to nature than to people.</p>
+          </div>
         </div>
 
         <Link to="/purchase/1123123">
-          <button>Detail</button>
+          <button className="btn">Detail</button>
         </Link>
       </div>
-      <div className="right-container nav-padding">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, rem.</p>
+      <div className="right-container">
+        <h1 className="gradient-text">Check our NFT product</h1>
 
-        <p>display : {getActiveDisplay()}</p>
-        <button onClick={changeDisplay}>{getActiveDisplay() === "single" ? "collections" : "single"}</button>
+        <div className="type-container">
+          <p className="gradient-text">Display : {getActiveDisplay()}</p>
+          <button className="btn" onClick={changeDisplay}>{getActiveDisplay() === "Single" ? "Collections" : "Single"}</button>
+        </div>
 
         <div
           className="img-container"
           style={{
-            backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
+            backgroundColor: getActiveDisplay() === "Collection" ? "salmon" : "blue",
           }}
         >
           {imgUrls.map((imgUrl) => {
@@ -74,11 +78,11 @@ export default function Home() {
         </div>
 
         <div className="page-container">
-          <p>10/50</p>
+          <p className="gradient-text">Page: 10/50</p>
 
-          <div>
-            <button>&lt;</button>
-            <button>&gt;</button>
+          <div className="btn-container">
+            <button className="btn">&lt;</button>
+            <button className="btn">&gt;</button>
           </div>
         </div>
       </div>
