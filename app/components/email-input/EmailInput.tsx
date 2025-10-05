@@ -1,16 +1,18 @@
 import React, { useState, type ChangeEvent } from "react";
-import { isValidEmail } from "utils/validator";
+import { isValidEmail, isValidEnterpriseEmail } from "utils/validator";
 
 type EmailInputProps = {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
+  isEnterprise?: boolean;
 };
-export default function EmailInput({ onChange, value }: EmailInputProps) {
+export default function EmailInput({ onChange, value, isEnterprise = false }: EmailInputProps) {
   const [emailErrorMsg, setEmailErrorMsg] = useState("");
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log("here");
-    if (isValidEmail(e.target.value)) {
+    const validator = isEnterprise ? isValidEnterpriseEmail : isValidEmail;
+    if (validator(e.target.value)) {
       setEmailErrorMsg("");
     } else {
       setEmailErrorMsg("Please enter a valid email address");
