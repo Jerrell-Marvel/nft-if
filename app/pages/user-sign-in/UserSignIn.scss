@@ -45,12 +45,19 @@
       gap: 0.5rem;
     }
 
-    a {
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      font-size: 0.7rem;
+    .forget-password-wrapper{
+      display: flex;
+      justify-content: right;
+      a {
+        width:fit-content;
+        align-items: right;
+        text-decoration: none;
+        color: white;
+        font-size: 0.7rem;
+      }
     }
+
+    
 
     .reset-password{
         text-align: right;

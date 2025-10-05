@@ -1,0 +1,3 @@
+mata show password
+ganti warna input
+extract ke variable -> warna

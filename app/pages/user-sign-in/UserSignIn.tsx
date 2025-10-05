@@ -6,7 +6,7 @@ export default function UserSignInPage() {
   return (
     <div className="user-sign-in-page nav-padding">
       <div className="main-container">
-        <h1 className="gradient-text">Login</h1>
+        <h1 className="gradient-text">Sign In</h1>
 
         <div className="gradient-line"></div>
 
@@ -26,7 +26,9 @@ export default function UserSignInPage() {
           />
         </div>
 
-        <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
+        <div className='forget-password-wrapper'>
+          <Link to="/reset-password" className="reset-password gradient-text">Forget password?</Link>
+        </div>
         <button
           onClick={() => {
             navigate('/')
