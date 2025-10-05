@@ -7,7 +7,7 @@ export default function TopBar() {
     <nav className="topbar">
       <div className="topbar-left">
         <Link to={"/"}>
-          <img src="public/icon.png" alt="" className="logo" />
+          <img src="/icon.png" alt="" className="logo" />
         </Link>
         <div className="search-container">
           <svg
@@ -24,7 +24,7 @@ export default function TopBar() {
               navigate("/");
             }}
           >
-            <input type="text" placeholder="Search NFT" />
+            <input type="text" placeholder="Search NFT"/>
 
             <button type="submit" className="btn">
               Search
@@ -66,7 +66,7 @@ export default function TopBar() {
         <Link to={"/profile"}>
           <img
             // src="https://i.pravatar.cc/40?u=a042581f4e29026704d"
-            src="public/defaultProfile.jpg"
+            src="/defaultProfile.jpg"
             alt="User Avatar"
             className="user-avatar"
           />

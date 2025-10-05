@@ -5,7 +5,7 @@ export default function ResetPasswordForm() {
   return (
     <div className="reset-password-form-page">
       <div className="form-card">
-        <h2>Reset Your Password</h2>
+        <h2 className="gradient-text">Reset Password</h2>
         <p>Please enter a new password below</p>
 
         <div className="form-group">
@@ -22,6 +22,7 @@ export default function ResetPasswordForm() {
           onClick={() => {
             toast.success("Your password has been reset");
           }}
+          className="btn"
         >
           Reset
         </button>
