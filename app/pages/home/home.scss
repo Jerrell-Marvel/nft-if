@@ -6,8 +6,9 @@
   gap: 2rem;
   width: 100%;
   background-color: var.$primary-black;
-  padding: 0 2rem;
+  padding: 2rem;
   position: relative;
+  min-height: fit-content;
 
   .left-container {
     // margin:1rem;
@@ -15,7 +16,7 @@
     position: sticky;
     top: 7.5rem;
     align-self: start;
-    min-height: calc(100vh - 8.5rem);
+    min-height: calc(100vh - 9.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,12 +50,12 @@
   }
 
   .right-container {
-    padding: 1rem;
     background-color: var.$secondary-black;
     border: 1px solid #374151;
     border-radius: 0.5rem;
     padding: 1.5rem;
     min-width: 0;
+    // margin-bottom: 2rem;
     // margin-right: 2rem;
     // display: flex;
     // height: 2000dvh;
@@ -74,7 +75,7 @@
 
       .img-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
         // width: 80%;
         .img-item {
