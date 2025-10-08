@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router";
-import "./purchase.scss";
+import "./bid.scss";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -26,10 +26,10 @@ const nftProperties = [
   },
 ];
 
-export default function Purchase() {
+export default function Bid() {
   const { nftId } = useParams();
   return (
-    <main className="purchase-page nav-padding">
+    <main className="bid-page nav-padding">
       {/* <h3>NFT ID : {nftId}</h3> */}
 
       <div className="main-container">
@@ -61,10 +61,19 @@ export default function Purchase() {
           </div>
 
           <div className="price-container">
-            <span className="price">Price: 1.000 USD</span>
+            <div className="left-wrapper">
+              <h2>Current Highest Bid</h2>
+              <p className="price">Price: 800 USD</p>
+              <span className="creator">by: The Authentic</span>
+            </div>
+
+            <div className="right-wrapper">
+              <h2>Auction Ends In</h2>
+              <p>01d 12h 45m 05s</p>
+            </div>
 
             <Link to={"/cart"}>
-              <button className="btn">Add to cart</button>
+              <button className="btn">Place a bid</button>
             </Link>
           </div>
 
