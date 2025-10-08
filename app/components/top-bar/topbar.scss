@@ -17,7 +17,7 @@
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3.4px);
 -webkit-backdrop-filter: blur(3.4px);
-border-bottom: 0.5px solid rgb(122, 122, 122);
+// border-bottom: 0.5px solid rgb(122, 122, 122);
 
   .topbar-left {
     display: flex;
@@ -75,7 +75,7 @@ border-bottom: 0.5px solid rgb(122, 122, 122);
       font-weight: 500;
       // font-size: 14px;
       padding: 10px 36px 10px 20px;
-      border: 1px solid #555555;
+      border: 2px solid #ffffff;
       border-radius: 8px;
       background-color: transparent;
       cursor: pointer;
