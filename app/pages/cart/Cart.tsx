@@ -25,32 +25,44 @@ const nfts = [
 export default function Cart() {
   return (
     <main className="cart-page nav-padding">
-      {nfts.map((nft) => {
-        return (
-          <div className="cart-item glow-hover">
-            <img src={nft.imgUrl} className="glow-hover" />
+      <div className="cart-container">
+        <h1 className="gradient-text">CART</h1>
+          {nfts.map((nft) => {
+            return (
+              <div className="cart-item">
+                <img src={nft.imgUrl} className="" />
 
-            <div className="cart-item-info">
-              <p className="gradient-text">{nft.name}</p>
+                <div className="cart-item-info">
+                  <div className="cart-item-info-left">
+                    <div className="cart-item-left-top-info">
+                      <h2 className="gradient-text">{nft.name}</h2>
+                      {/* <h3> Price: ~</h3> */}
+                    </div>
+                    <div className="bid-info">
+                      <p>current bid: ~</p>
+                      <p>your bid: ~</p>
+                      <p>Time: ~</p>
+                    </div>
+                  </div>
+                  <button className="delete-button btn">Delete</button>
+                </div>
+                
+              </div>
+            );
+          })}
 
-              <button className="delete-button glow-hover">Delete</button>
-            </div>
-          </div>
-        );
-      })}
-
-      <div className="checkout">
-        <label htmlFor="wallet">Choose a wallet:</label>
-        <select
-          name="wallet"
-          id="wallet"
-        >
-          <option value="wallet 1">wallet 1</option>
-          <option value="wallet 2">wallet 2</option>
-          <option value="wallet 3">wallet 3</option>
-          <option value="wallet 4">wallet 4</option>
-        </select>
-        <button className="glow-hover">Checkout</button>
+        <div className="checkout">
+          <label htmlFor="wallet" className="gradient-text">Choose a wallet:</label>
+          <select className="explore-button"
+            name="wallet"
+            id="wallet">
+            <option value="wallet 1">Wallet 1</option>
+            <option value="wallet 2">Wallet 2</option>
+            <option value="wallet 3">Wallet 3</option>
+            <option value="wallet 4">Wallet 4</option>
+          </select>
+          <button className="btn">Checkout</button>
+        </div>  
       </div>
     </main>
   );

@@ -1,3 +1,5 @@
+@use "../../variables.scss" as var;
+
 .cart-page {
   display: flex;
   flex-direction: column;
@@ -6,14 +8,22 @@
   background-color: #1a202c;
   font: inherit;
   padding-bottom: 5rem;
-  .glow-hover {
-    transition: 0.4s ease;
+  
+  h1{
+    padding-bottom: 3rem;
+    font:inherit;
+    font-size: 3rem;
   }
-
-  .glow-hover:hover {
-    box-shadow: 0 0 25px 10px rgba(89, 99, 228, 0.8);
+  .cart-container{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    background-color: var.$primary-black;
+    align-items: center;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    padding: 3rem 1.5rem;
   }
-
   .cart-item {
     display: flex;
     justify-content: space-between;
@@ -22,43 +32,70 @@
     border: 1px solid black;
     width: 150vh;
     border-radius: 1rem;
-
+    cursor: pointer;
+    background-color: var.$secondary-black;
+    
     img {
       margin: 0.5rem;
       height: 15vh;
     }
 
-  }
-  .cart-item-info {
-    display:flex;
-    flex-direction:row;
-    width: 85%;
-    text-align: center;
-    align-items: center;
-  }
-  .delete-button {
-    margin-left: auto;
-    margin-right: 3.5rem;
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    height: 3rem;
-    width: 8rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: blueviolet;
+    .cart-item-info {
+      display:flex;
+      flex-direction:row;
+      width: 85%;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      .cart-item-info-left{
+        width: 85%;
+        text-align: left;
+        height: 10vh;
+        align-content: space-between;
+        .cart-item-left-top-info{
+          display: flex;
+          flex-direction: row;
+          width: 70%;
+          // justify-content: space-between;
+          h2{
+            width: auto;
+            font-size: 2rem;
+          }
+          padding-bottom: 1rem;
+          // h3{
+          //   color: white;
+          //   width: auto;
+          //   font-size: 2rem;
+          // }
+          
+      }
+      }
+      .bid-info{
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        justify-content: space-between;
+      }
+    }
+    .delete-button {
+      margin-left: auto;
+      margin-right: 3.5rem;
+      border: none;
+      padding: 0.5rem 1rem;
+      height: 3rem;
+      width: 8rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+    p{
+      font-size: 1.2rem;
+      color:white
     }
   }
-  p{
-    font-size: 1.5rem;
-    color:white
-  }
   .checkout {
+    padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,6 +104,8 @@
 
     label {
       font-size: 1.5rem;
+      color:white;
+
     }
 
     select {
@@ -75,25 +114,47 @@
       border-radius: 0.5rem;
       border: 1px solid black;
     }
-
-    button {
-      background-color: green;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-      border-radius: 0.5rem;
-      transition: background-color 0.3s ease;
-      
-      &:hover {
-        background-color: darkgreen;
-      }
+    button{
+      height: 5vh;
+      width: 6rem;
+      font-size: inherit;
     }
-  }
-  .checkout{
-    label{
-      color:white;
+    .explore-button {
+      color: #ffffff;
+      font-weight: 500;
+      // font-size: 14px;
+      width: 9rem;
+      padding: 10px 36px 10px 20px;
+      border: 1px solid #555555;
+      border-radius: 8px;
+      background-color: transparent;
+      cursor: pointer;
+  
+      appearance: none;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
+  
+      background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 20px;
+  
+      &:hover {
+        background-color: #333333;
+        border-color: #777777;
+      }
+  
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+  
+      option {
+        background-color: #2c2c2c;
+        color: #ffffff;
+        border: none;
+      }
     }
   }
 }
