@@ -68,7 +68,11 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
-      <main className="home-page main-container nav-padding">
+        <div className="filter-container nav-padding">
+          Search Results: Ayam
+          
+        </div>
+      <main className="home-page main-container   ">
         <div className="left-container">
           <div>
             <h1 className="gradient-text">Mountain Cliffs NFT</h1>

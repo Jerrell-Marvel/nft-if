@@ -1,5 +1,10 @@
 @use "../../variables.scss" as var;
 
+.filter-container{
+  background-color: var.$primary-black;
+  color: white;
+}
+
 .home-page {
   display: grid;
   grid-template-columns: 1fr 2fr;
