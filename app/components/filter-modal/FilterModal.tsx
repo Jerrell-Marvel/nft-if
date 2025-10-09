@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FilterModal.scss";
 import { useNavigate } from "react-router";
 
@@ -8,6 +8,10 @@ type FilterModalProps = {
 };
 
 const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
+  const [minPrice, setMinPrice] = useState<number>(0);
+  const [maxPrice, setMaxPrice] = useState<number>(0);
+  const navigate = useNavigate();
+
   if (!show) {
     return null;
   }
@@ -16,7 +20,25 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
     e.stopPropagation();
   };
 
-  let navigate = useNavigate();
+  const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMinPrice = e.target.value;
+    setMinPrice(+newMinPrice);
+
+    if (Number(newMinPrice) > Number(maxPrice)) {
+      setMaxPrice(+newMinPrice);
+    }
+  };
+
+  const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMaxPrice = e.target.value;
+    // if (!minPrice || Number(newMaxPrice) >= Number(minPrice)) {
+    setMaxPrice(+newMaxPrice);
+    if (Number(minPrice) > Number(newMaxPrice)) {
+      setMinPrice(+newMaxPrice);
+    }
+    // }
+  };
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-content" onClick={handleContentClick}>
@@ -51,9 +73,21 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
           <div className="filter-section">
             <h3>Price Range</h3>
             <div className="price-inputs">
-              <input type="number" placeholder="Min" />
+              <input
+                type="number"
+                placeholder="Min"
+                value={minPrice}
+                onChange={handleMinPriceChange}
+                min={0}
+              />
               <span>to</span>
-              <input type="number" placeholder="Max" />
+              <input
+                type="number"
+                placeholder="Max"
+                value={maxPrice}
+                onChange={handleMaxPriceChange}
+                min={0}
+              />
               <select>
                 <option>ETH</option>
                 <option>WETH</option>
