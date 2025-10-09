@@ -1,5 +1,7 @@
+@use "../../variables.scss" as var;
+
 .purchase-page {
-  background-color: #000;
+  background-color: var.$testing-background;
   color: white;
   // min-height: 100vh;
   display: flex;
@@ -39,7 +41,8 @@
 
       .details {
         margin-top: 2rem;
-        background-color: rgb(19,24,19); /* Gray 800 */
+        // background-color: rgb(19,24,19); /* Gray 800 */
+        background-color: var.$testing-secbackground;
         border: 1px solid #374151; /* Gray 700 */
         border-radius: 0.5rem;
         padding: 1.5rem;
@@ -74,7 +77,8 @@
     }
 
     .right-container {
-      background-color: rgb(19,24,19); /* Gray 800 */
+      // background-color: rgb(19,24,19); /* Gray 800 */
+      background-color: var.$testing-secbackground;
       border: 1px solid #374151; /* Gray 700 */
       border-radius: 0.5rem;
       padding: 1.5rem;
