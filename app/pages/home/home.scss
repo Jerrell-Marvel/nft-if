@@ -16,7 +16,8 @@
     position: sticky;
     top: 7.5rem;
     align-self: start;
-    min-height: calc(100vh - 9.5rem);
+    height: calc(100vh - 9.5rem);
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,7 +65,6 @@
 
     .mySwiper {
       width: 100%;
-      background-color: #f0f0f0;
     }
 
     .swiper-slide {
@@ -75,12 +75,44 @@
 
       .img-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-        // width: 80%;
-        .img-item {
-          cursor: pointer;
+        cursor: pointer;
+
+        .nft-card {
+          padding: 1rem;
+          background-color: var.$tertiary-black;
+
+          // border: 1px solid var.$border-gray;
+          border-radius: 16px;
+          overflow: hidden;
+          .img-item {
+            margin-bottom: 1rem;
+            position: relative;
+            .real-img {
+              z-index: 10;
+              position: relative;
+            }
+            img {
+              width: 100%;
+            }
+
+            .collection-img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 9;
+              // transform-origin: center;
+            }
+          }
+
+          p {
+            color: white;
+            font-size: 1rem;
+            text-align: left;
+          }
         }
+        // width: 80%;
       }
     }
 
@@ -168,6 +200,35 @@
     justify-content: center;
     .btn {
       width: 4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-page {
+    display: block;
+    position: static;
+
+    .left-container {
+      position: static;
+      height: fit-content;
+      margin-bottom: 1rem;
+    }
+
+    .right-container {
+      position: static;
+
+      // .swiper-slide {
+      //   .img-container {
+      //     grid-template-columns: repeat(2, 1fr);
+      //   }
+      // }
+
+      .swiper-slide {
+        .img-container {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
     }
   }
 }

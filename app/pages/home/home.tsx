@@ -6,12 +6,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "./home.scss";
+import jsonNftData from "../../nft-data.json";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
 }
 
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+
+const nftData1 = jsonNftData.slice(0, 8);
+const nftData2 = jsonNftData.slice(8, 16);
+const nftData3 = jsonNftData.slice(16);
+const nftData = [nftData1, nftData2, nftData3];
+
+type NftData = (typeof nftData)[0];
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,15 +31,15 @@ export default function Home() {
 
   const getActiveDisplay = () => {
     const displayValue = searchParams.get("display");
-    if (displayValue === "Collection") {
+    if (displayValue === "collection") {
       return displayValue;
     }
-    return "Single";
+    return "single";
   };
 
   const changeDisplay = () => {
     setSearchParams({
-      display: getActiveDisplay() === "Single" ? "Collection" : "Single",
+      display: getActiveDisplay() === "single" ? "collection" : "single",
     });
   };
 
@@ -81,7 +89,11 @@ export default function Home() {
 
               <p className="gradient-text">
                 A dramatic coastal scene where towering white cliffs meet the restless ocean. The cliffs rise steeply from the narrow strip of beach, their faces streaked with earthy tones and patches of greenery. breaking into white foam
-                as waves lap onto the sand. The coastline curves gracefully into the distance, giving a sense of both grandeur and solitude, as if this rugged place belongs more to nature than to people.
+                {/* as waves lap onto the sand. The coastline curves gracefully into the distance, giving a sense of both grandeur and solitude, as if this rugged place belongs more to nature than to people. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. A recusandae facilis beatae porro consequatur accusamus fugiat maxime ut ab, quos aliquam modi iusto non quae obcaecati sint provident, laborum, consequuntur eligendi. Velit deserunt sequi,
+                doloribus ipsa odit ea maiores mollitia sapiente atque ex. Laborum tempora natus cupiditate veritatis assumenda, omnis ratione quae voluptatem consectetur numquam voluptatum. Facilis, iusto delectus quaerat earum voluptatum
+                cumque quasi. Accusamus harum natus odio, sit pariatur dignissimos, exercitationem quos labore aut ipsum officiis, porro corporis vero facilis fugiat error voluptatibus ea laudantium illum. Id commodi sint similique unde
+                tempore quidem, molestiae fugiat aliquam voluptatem quia quis! */}
               </p>
             </div>
           </div>
@@ -100,7 +112,7 @@ export default function Home() {
               className="btn"
               onClick={changeDisplay}
             >
-              {getActiveDisplay() === "Single" ? "Collections" : "Single"}
+              {getActiveDisplay() === "single" ? "Collections" : "Single"}
             </button>
           </div>
 
@@ -132,40 +144,40 @@ export default function Home() {
               swiper.params.pagination.el = paginationRef.current;
             }}
           >
-            {Array.from({
-              length: 10,
-            }).map(() => {
+            {nftData.map((nftList) => {
               return (
                 <SwiperSlide>
                   <div
                     className="img-container"
-                    style={{
-                      backgroundColor: getActiveDisplay() === "Collection" ? "salmon" : "blue",
-                    }}
+                    // style={{
+                    //   backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
+                    // }}
                   >
-                    {imgUrls.map((imgUrl) => {
+                    {nftList.map((data) => {
                       return (
-                        <img
-                          className="img-item"
-                          src={imgUrl}
-                          key={imgUrl}
+                        <div
+                          className="nft-card"
+                          key={data.nft_details.image_url}
                           onClick={() => {
-                            setSelectedImage(imgUrl);
+                            if (window.innerWidth < 768) {
+                              window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                              });
+                            }
+                            setSelectedImage(data.nft_details.image_url);
                           }}
-                        />
-                      );
-                    })}
+                        >
+                          <div className="img-item">
+                            <img
+                              src={data.nft_details.image_url}
+                              className="real-img"
+                            />
+                          </div>
 
-                    {imgUrls.map((imgUrl) => {
-                      return (
-                        <img
-                          className="img-item"
-                          src={imgUrl}
-                          key={imgUrl}
-                          onClick={() => {
-                            setSelectedImage(imgUrl);
-                          }}
-                        />
+                          <p>{data.nft_details.title}</p>
+                        </div>
                       );
                     })}
                   </div>

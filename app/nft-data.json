@@ -1,0 +1,334 @@
+[
+  {
+    "id": 1,
+    "nft_details": {
+      "title": "Cosmic Dream #1",
+      "image_url": "/images/cosmic_dream_1.png",
+      "status": "on auction",
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "1.2 ETH",
+      "bid_by": "0xAb...c1d2",
+      "time": "12 hours left"
+    }
+  },
+  {
+    "id": 2,
+    "nft_details": {
+      "title": "Cyber Cityscape #22",
+      "image_url": "/images/cyber_city_22.png",
+      "status": "available",
+      "creator": "NeoPixel",
+      "owner": "NeoPixel"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 3,
+    "nft_details": {
+      "title": "Ancient Golem #7",
+      "image_url": "/images/golem_7.jpg",
+      "status": "sold",
+      "creator": "MythosForge",
+      "owner": "ArtCollectorX"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 4,
+    "nft_details": {
+      "title": "Oceanic Depth #3",
+      "image_url": "/images/ocean_depth_3.gif",
+      "status": "available",
+      "creator": "AquaVerse",
+      "owner": "AquaVerse"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": "Starts in 2 days"
+    }
+  },
+  {
+    "id": 5,
+    "nft_details": {
+      "title": "Floating Island #1",
+      "image_url": "/images/island_1.png",
+      "status": "on auction",
+      "creator": "SkyHigh",
+      "owner": "SkyHigh"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "0.75 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "2 days left"
+    }
+  },
+  {
+    "id": 6,
+    "nft_details": {
+      "title": "Pixel Knight #15",
+      "image_url": "/images/knight_15.png",
+      "status": "available",
+      "creator": "8bitLegacy",
+      "owner": "8bitLegacy"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 7,
+    "nft_details": {
+      "title": "Nature's Whisper #9",
+      "image_url": "/images/nature_9.jpg",
+      "status": "sold",
+      "creator": "EcoArtist",
+      "owner": "GreenThumb"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 8,
+    "nft_details": {
+      "title": "Robo Companion #42",
+      "image_url": "/images/robo_42.png",
+      "status": "on auction",
+      "creator": "FutureTech",
+      "owner": "FutureTech"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "2.1 ETH",
+      "bid_by": "0xFe...b4a9",
+      "time": "4 hours left"
+    }
+  },
+  {
+    "id": 9,
+    "nft_details": {
+      "title": "Abstract Form #11",
+      "image_url": "/images/abstract_11.png",
+      "status": "available",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 10,
+    "nft_details": {
+      "title": "Galactic Voyager #1",
+      "image_url": "/images/voyager_1.jpg",
+      "status": "available",
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": "Auction not started"
+    }
+  },
+  {
+    "id": 11,
+    "nft_details": {
+      "title": "Mountain Cliffs NFT",
+      "image_url": "/images/cliffs.png",
+      "status": "available",
+      "creator": null,
+      "owner": null
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": null
+    }
+  },
+  {
+    "id": 12,
+    "nft_details": {
+      "title": "Sunset Haze #5",
+      "image_url": "/images/sunset_5.png",
+      "status": "sold",
+      "creator": "SkyHigh",
+      "owner": "0xAb...c1d2"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 13,
+    "nft_details": {
+      "title": "Forest Spirit #2",
+      "image_url": "/images/spirit_2.gif",
+      "status": "on auction",
+      "creator": "EcoArtist",
+      "owner": "EcoArtist"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "0.9 ETH",
+      "bid_by": "ArtCollectorX",
+      "time": "Ending soon"
+    }
+  },
+  {
+    "id": 14,
+    "nft_details": {
+      "title": "Lunar Rover #8",
+      "image_url": "/images/rover_8.jpg",
+      "status": "available",
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 15,
+    "nft_details": {
+      "title": "City Lights #77",
+      "image_url": "/images/citylights_77.png",
+      "status": "available",
+      "creator": "NeoPixel",
+      "owner": "NeoPixel"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 16,
+    "nft_details": {
+      "title": "Dragon's Breath #1",
+      "image_url": "/images/dragon_1.gif",
+      "status": "on auction",
+      "creator": "MythosForge",
+      "owner": "MythosForge"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "5.5 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "1 hour left"
+    }
+  },
+  {
+    "id": 17,
+    "nft_details": {
+      "title": "Forgotten Temple #4",
+      "image_url": "/images/temple_4.jpg",
+      "status": "sold",
+      "creator": "MythosForge",
+      "owner": "HistoryBuff"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 18,
+    "nft_details": {
+      "title": "Coral Reef #19",
+      "image_url": "/images/coral_19.png",
+      "status": "available",
+      "creator": "AquaVerse",
+      "owner": "AquaVerse"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 19,
+    "nft_details": {
+      "title": "Mecha Suit #3B",
+      "image_url": "/images/mecha_3b.png",
+      "status": "available",
+      "creator": "FutureTech",
+      "owner": "FutureTech"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "1.8 ETH",
+      "bid_by": "0xFe...b4a9",
+      "time": "3 days left"
+    }
+  },
+  {
+    "id": 20,
+    "nft_details": {
+      "title": "8-bit Hero #101",
+      "image_url": "/images/hero_101.png",
+      "status": "sold",
+      "creator": "8bitLegacy",
+      "owner": "GamerGeek"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 21,
+    "nft_details": {
+      "title": "The Thinker #2",
+      "image_url": "/images/thinker_2.png",
+      "status": "available",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 22,
+    "nft_details": {
+      "title": "Cloud Palace #3",
+      "image_url": "/images/palace_3.jpg",
+      "status": "on auction",
+      "creator": "SkyHigh",
+      "owner": "SkyHigh"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "3.2 ETH",
+      "bid_by": "0xAb...c1d2",
+      "time": "22 hours left"
+    }
+  },
+  {
+    "id": 23,
+    "nft_details": {
+      "title": "Volcanic Eruption #1",
+      "image_url": "/images/volcano_1.gif",
+      "status": "sold",
+      "creator": "EcoArtist",
+      "owner": "CryptoWhale"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "4.0 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "Ended"
+    }
+  },
+  {
+    "id": 24,
+    "nft_details": {
+      "title": "Quantum Particle #7",
+      "image_url": "/images/quantum_7.png",
+      "status": "available",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  }
+]
