@@ -39,8 +39,8 @@ export default function Cart() {
                       {/* <h3> Price: ~</h3> */}
                     </div>
                     <div className="bid-info">
-                      <p>current bid: ~</p>
-                      <p>your bid: ~</p>
+                      <p>Current Bid: ~</p>
+                      <p>Your Bid: ~</p>
                       <p>Time: ~</p>
                     </div>
                   </div>
