@@ -1,6 +1,10 @@
 import "./Filter.scss";
 
-export default function FIlter() {
+type filterProps = {
+  onClick?: () => void;
+};
+
+export default function Filter({ onClick }: filterProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -10,6 +14,7 @@ export default function FIlter() {
       xmlns="http://www.w3.org/2000/svg"
       stroke="#ffffff"
       className="filter-icon"
+      onClick={onClick}
     >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
       <g

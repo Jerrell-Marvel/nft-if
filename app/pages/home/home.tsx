@@ -7,6 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "./home.scss";
 import Filter from "~/components/icons/filter/Filter";
+import FilterModal from "~/components/filter-modal/FilterModal";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -38,6 +39,11 @@ export default function Home() {
       display: getActiveDisplay() === "Single" ? "Collection" : "Single",
     });
   };
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
 
   return (
     <>
@@ -80,6 +86,7 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
+      <FilterModal show={isModalOpen} onClose={closeModal} />
       <main className="home-page main-container nav-padding">
         <div className="content">
           <div className="left-container">
@@ -107,6 +114,9 @@ export default function Home() {
           </div>
 
           <div className="right-container">
+            <div className="filter-container">
+              <Filter onClick={openModal} />
+            </div>
             <h1 className="gradient-text">Check our NFT product</h1>
 
             <div className="type-container">
@@ -116,10 +126,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="filter-container">
-              <span>Showing result of "..."</span>
-              <Filter />
-            </div>
+            <span>Showing result of "..."</span>
 
             <Swiper
               // Pass modules
