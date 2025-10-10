@@ -5,8 +5,14 @@ type EmailInputProps = {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
   isEnterprise?: boolean;
+  showEmail?: boolean;
 };
-export default function EmailInput({ onChange, value, isEnterprise = false }: EmailInputProps) {
+export default function EmailInput({
+  onChange,
+  value,
+  isEnterprise = false,
+  showEmail = true,
+}: EmailInputProps) {
   const [emailErrorMsg, setEmailErrorMsg] = useState("");
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +28,7 @@ export default function EmailInput({ onChange, value, isEnterprise = false }: Em
   };
   return (
     <>
-      <label htmlFor="email">Email</label>
+      {showEmail && <label htmlFor="email">Email</label>}
       <input
         type="text"
         id="email"
