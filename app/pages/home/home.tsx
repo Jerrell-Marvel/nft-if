@@ -10,7 +10,10 @@ import jsonNftData from "../../nft-data.json";
 import jsonCollectionNftData from "../../nft-collection-data.json";
 
 export function meta({}: Route.MetaArgs) {
-  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
 }
 
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
@@ -47,6 +50,11 @@ export default function Home() {
     });
   };
 
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
+
   return (
     <>
       <Swiper
@@ -60,7 +68,15 @@ export default function Home() {
           el: paginationRef.current,
           type: "fraction",
           renderFraction: function (currentClass, totalClass) {
-            return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
+            return (
+              '<span class="' +
+              currentClass +
+              '"></span>' +
+              " of " +
+              '<span class="' +
+              totalClass +
+              '"></span>'
+            );
           },
         }}
         onBeforeInit={(swiper) => {
@@ -75,6 +91,7 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
+      <FilterModal show={isModalOpen} onClose={closeModal} />
       <main className="home-page main-container nav-padding">
         <div className="left-container">
           <div>
@@ -131,15 +148,6 @@ export default function Home() {
                 ) : null}
               </div>
             </div>
-          </div>
-
-          <Link to="/purchase/1123123">
-            <button className="btn">Detail</button>
-          </Link>
-        </div>
-
-        <div className="right-container">
-          <h1 className="gradient-text">Check our NFT product</h1>
 
           <div className="type-container">
             <p
@@ -285,15 +293,112 @@ export default function Home() {
             >
               left
             </div>
-            <div
-              ref={paginationRef}
-              className="custom-pagination"
-            ></div>
-            <div
-              ref={navigationNextRef}
-              className="custom-button custom-button-next"
+            <h1 className="gradient-text">Check our NFT product</h1>
+
+            <div className="type-container">
+              <p className="gradient-text">Display : {getActiveDisplay()}</p>
+              <button className="btn" onClick={changeDisplay}>
+                {getActiveDisplay() === "Single" ? "Collections" : "Single"}
+              </button>
+            </div>
+
+            <span>Showing result of "..."</span>
+
+            <Swiper
+              // Pass modules
+              modules={[Navigation, Pagination]}
+              className="mySwiper"
+              // Configure Navigation
+              navigation={{
+                prevEl: navigationPrevRef.current,
+                nextEl: navigationNextRef.current,
+              }}
+              // Configure Pagination
+              pagination={{
+                el: paginationRef.current,
+                type: "fraction",
+                // Custom render function for the fraction
+                renderFraction: function (currentClass, totalClass) {
+                  return (
+                    '<span class="' +
+                    currentClass +
+                    '"></span>' +
+                    " of " +
+                    '<span class="' +
+                    totalClass +
+                    '"></span>'
+                  );
+                },
+              }}
+              // This is important: it re-initializes Swiper after the refs are mounted
+              onBeforeInit={(swiper) => {
+                //@ts-ignore
+                swiper.params.navigation.prevEl = navigationPrevRef.current;
+                //@ts-ignore
+                swiper.params.navigation.nextEl = navigationNextRef.current;
+                //@ts-ignore
+                swiper.params.pagination.el = paginationRef.current;
+              }}
             >
-              right
+              {Array.from({
+                length: 10,
+              }).map(() => {
+                return (
+                  <SwiperSlide>
+                    <div
+                      className="img-container"
+                      style={{
+                        backgroundColor:
+                          getActiveDisplay() === "Collection"
+                            ? "salmon"
+                            : "blue",
+                      }}
+                    >
+                      {imgUrls.map((imgUrl) => {
+                        return (
+                          <img
+                            className="img-item"
+                            src={imgUrl}
+                            key={imgUrl}
+                            onClick={() => {
+                              setSelectedImage(imgUrl);
+                            }}
+                          />
+                        );
+                      })}
+
+                      {imgUrls.map((imgUrl) => {
+                        return (
+                          <img
+                            className="img-item"
+                            src={imgUrl}
+                            key={imgUrl}
+                            onClick={() => {
+                              setSelectedImage(imgUrl);
+                            }}
+                          />
+                        );
+                      })}
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+
+            <div className="custom-controls-container">
+              <div
+                ref={navigationPrevRef}
+                className="custom-button custom-button-prev"
+              >
+                left
+              </div>
+              <div ref={paginationRef} className="custom-pagination"></div>
+              <div
+                ref={navigationNextRef}
+                className="custom-button custom-button-next"
+              >
+                right
+              </div>
             </div>
           </div>
         </div>
