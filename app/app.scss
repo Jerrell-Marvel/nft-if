@@ -126,6 +126,9 @@ table {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -169,5 +172,21 @@ input {
   color: var.$error-red;
 }
 
-$primary-black: rgb(1, 10, 2);
-$secondary-black: rgb(19, 24, 19);
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var.$primary-black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var.$border-gray;
+  border-radius: 5px;
+}
+
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: gray #f0f0f0;
+// }

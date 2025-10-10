@@ -1,8 +1,7 @@
-@use "../../variables.scss" as var;
-.purchase-page {
+@use "../../../variables.scss" as var;
+.bid-page {
   background-color: var.$primary-black;
   color: white;
-  min-height: 100vh;
   // display: flex;
   // justify-content: center;
   // align-items: center;
@@ -14,6 +13,7 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 2rem;
+  min-height: 100vh;
   height: fit-content;
 
   h2 {
@@ -82,6 +82,7 @@
     border: 1px solid #374151; /* Gray 700 */
     border-radius: 0.5rem;
     padding: 1.5rem;
+    height: 100%;
     .title {
       display: flex;
       flex-direction: column;
@@ -101,10 +102,48 @@
     .price-container {
       margin: 1.5rem 0;
       // font-size: 2.25rem;
-      font-weight: 700;
+      // font-weight: 700;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      line-height: 1.5;
+
+      .bid-container {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .left-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-content: space-between;
+          height: 100%;
+        }
+
+        .right-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-content: space-between;
+          height: 100%;
+        }
+      }
+
+      .price {
+        font-weight: 700;
+      }
+      .creator {
+        // align-items: center;
+        // font-size: 0.875rem;
+        display: flex;
+        color: #60a5fa;
+        gap: 1rem;
+      }
+
+      a {
+        .btn {
+          width: 5rem;
+        }
+      }
     }
 
     .description {

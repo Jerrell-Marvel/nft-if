@@ -1,0 +1,382 @@
+[
+  {
+    "id": 1,
+    "nft_details": {
+      "title": "Cosmic Dream #1",
+      "description": "A mesmerizing digital painting capturing the birth of a nebula in vivid colors.",
+      "image_url": "/images/cosmic-dream.jpg",
+      "status": "on auction",
+      "price": null,
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "1.2 ETH",
+      "bid_by": "0xAb...c1d2",
+      "time": "12 hours left"
+    }
+  },
+  {
+    "id": 2,
+    "nft_details": {
+      "title": "Cyber Cityscape #22",
+      "description": "A glimpse into the neon-drenched streets of a futuristic metropolis.",
+      "image_url": "/images/Cyber-Cityscape.jpg",
+      "status": "available",
+      "price": "0.8 ETH",
+      "creator": "NeoPixel",
+      "owner": "NeoPixel"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 3,
+    "nft_details": {
+      "title": "Ancient Golem #7",
+      "description": "An animated depiction of an ancient stone golem awakening from a long slumber.",
+      "image_url": "/images/ancient-golem.jpg",
+      "status": "sold",
+      "price": "1.5 ETH",
+      "creator": "MythosForge",
+      "owner": "ArtCollectorX"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 4,
+    "nft_details": {
+      "title": "Oceanic Depth #3",
+      "description": "Discover the mysterious creatures that inhabit the deepest parts of the ocean.",
+      "image_url": "/images/oceanic-depth.jpg",
+      "status": "available",
+      "price": null,
+      "creator": "AquaVerse",
+      "owner": "AquaVerse"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": "Starts in 2 days"
+    }
+  },
+  {
+    "id": 5,
+    "nft_details": {
+      "title": "Floating Island #1",
+      "description": "A serene landscape of a gravity-defying island floating peacefully in the sky.",
+      "image_url": "/images/floating-island.jpg",
+      "status": "on auction",
+      "price": null,
+      "creator": "SkyHigh",
+      "owner": "SkyHigh"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "0.75 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "2 days left"
+    }
+  },
+  {
+    "id": 6,
+    "nft_details": {
+      "title": "Pixel Knight #15",
+      "description": "A brave 8-bit knight ready for an adventure. Part of the classic RPG collection.",
+      "image_url": "/images/pixel-knight.jpg",
+      "status": "available",
+      "price": "0.25 ETH",
+      "creator": "8bitLegacy",
+      "owner": "8bitLegacy"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 7,
+    "nft_details": {
+      "title": "Nature's Whisper #9",
+      "description": "High-resolution photograph capturing the morning dew on a forest leaf.",
+      "image_url": "/images/natures-whisper.png",
+      "status": "sold",
+      "price": "0.9 ETH",
+      "creator": "EcoArtist",
+      "owner": "GreenThumb"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 8,
+    "nft_details": {
+      "title": "Robo Companion #42",
+      "description": "A friendly and loyal robotic partner from the year 2077.",
+      "image_url": "/images/robo-companion.svg",
+      "status": "on auction",
+      "price": null,
+      "creator": "FutureTech",
+      "owner": "FutureTech"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "2.1 ETH",
+      "bid_by": "0xFe...b4a9",
+      "time": "4 hours left"
+    }
+  },
+  {
+    "id": 9,
+    "nft_details": {
+      "title": "Abstract Form #11",
+      "description": "A generative piece of art representing the complexity of human thought.",
+      "image_url": "/images/abstract-form.jpg",
+      "status": "available",
+      "price": "0.4 ETH",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 10,
+    "nft_details": {
+      "title": "Galactic Voyager #1",
+      "description": "The first starship in the Voyager class, ready to explore the unknown.",
+      "image_url": "/images/galactic-voyager.webp",
+      "status": "available",
+      "price": null,
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": "Auction not started"
+    }
+  },
+  {
+    "id": 11,
+    "nft_details": {
+      "title": "Mountain Cliffs NFT",
+      "description": "A stunning photograph of misty cliffs meeting the ocean waves.",
+      "image_url": "/images/Mountain-Cliffs.webp",
+      "status": "available",
+      "price": null,
+      "creator": null,
+      "owner": null
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": null,
+      "bid_by": null,
+      "time": null
+    }
+  },
+  {
+    "id": 12,
+    "nft_details": {
+      "title": "Sunset Haze #5",
+      "description": "The warm colors of a sunset filtered through a soft, atmospheric haze.",
+      "image_url": "/images/sunset-haze.jpg",
+      "status": "sold",
+      "price": "0.6 ETH",
+      "creator": "SkyHigh",
+      "owner": "0xAb...c1d2"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 13,
+    "nft_details": {
+      "title": "Forest Spirit #2",
+      "description": "A mythical spirit guardian of an ancient, enchanted forest.",
+      "image_url": "/images/spirit_2.jpg",
+      "status": "on auction",
+      "price": null,
+      "creator": "EcoArtist",
+      "owner": "EcoArtist"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "0.9 ETH",
+      "bid_by": "ArtCollectorX",
+      "time": "Ending soon"
+    }
+  },
+  {
+    "id": 14,
+    "nft_details": {
+      "title": "Lunar Rover #8",
+      "description": "A 3D model of a futuristic rover designed for lunar exploration.",
+      "image_url": "/images/rover_8.png",
+      "status": "available",
+      "price": "1.0 ETH",
+      "creator": "StellarArt",
+      "owner": "StellarArt"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 15,
+    "nft_details": {
+      "title": "City Lights #77",
+      "description": "Long-exposure shot of city traffic, creating a river of light.",
+      "image_url": "/images/citylights_77.jpg",
+      "status": "available",
+      "price": "0.7 ETH",
+      "creator": "NeoPixel",
+      "owner": "NeoPixel"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 16,
+    "nft_details": {
+      "title": "Dragon's Breath #1",
+      "description": "A legendary 1-of-1 animated artwork of a dragon breathing fire.",
+      "image_url": "/images/dragon_1.jpg",
+      "status": "on auction",
+      "price": null,
+      "creator": "MythosForge",
+      "owner": "MythosForge"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "5.5 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "1 hour left"
+    }
+  },
+  {
+    "id": 17,
+    "nft_details": {
+      "title": "Forgotten Temple #4",
+      "description": "Architectural rendering of a temple lost to time and nature.",
+      "image_url": "/images/temple_4.jpg",
+      "status": "sold",
+      "price": "2.2 ETH",
+      "creator": "MythosForge",
+      "owner": "HistoryBuff"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 18,
+    "nft_details": {
+      "title": "Coral Reef #19",
+      "description": "A vibrant underwater scene teeming with colorful coral and marine life.",
+      "image_url": "/images/coral_19.jpg",
+      "status": "available",
+      "price": "0.3 ETH",
+      "creator": "AquaVerse",
+      "owner": "AquaVerse"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 19,
+    "nft_details": {
+      "title": "Mecha Suit #3B",
+      "description": "Concept art for the 'Behemoth' class mecha suit.",
+      "image_url": "/images/mecha_3b.jpg",
+      "status": "available",
+      "price": null,
+      "creator": "FutureTech",
+      "owner": "FutureTech"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "1.8 ETH",
+      "bid_by": "0xFe...b4a9",
+      "time": "3 days left"
+    }
+  },
+  {
+    "id": 20,
+    "nft_details": {
+      "title": "8-bit Hero #101",
+      "description": "The main character from the unreleased game 'Pixel Quest'.",
+      "image_url": "/images/hero_101.jpg",
+      "status": "sold",
+      "price": "0.5 ETH",
+      "creator": "8bitLegacy",
+      "owner": "GamerGeek"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 21,
+    "nft_details": {
+      "title": "The Thinker #2",
+      "description": "A modern re-interpretation of the classic sculpture in digital form.",
+      "image_url": "/images/thinker_2.jpg",
+      "status": "available",
+      "price": "0.85 ETH",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  },
+  {
+    "id": 22,
+    "nft_details": {
+      "title": "Cloud Palace #3",
+      "description": "An ethereal palace constructed from clouds, home to the sky spirits.",
+      "image_url": "/images/palace_3.jpg",
+      "status": "on auction",
+      "price": null,
+      "creator": "SkyHigh",
+      "owner": "SkyHigh"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "3.2 ETH",
+      "bid_by": "0xAb...c1d2",
+      "time": "22 hours left"
+    }
+  },
+  {
+    "id": 23,
+    "nft_details": {
+      "title": "Volcanic Eruption #1",
+      "description": "A powerful and dynamic animation of a volcano erupting.",
+      "image_url": "/images/volcano_1.jpg",
+      "status": "sold",
+      "price": null,
+      "creator": "EcoArtist",
+      "owner": "CryptoWhale"
+    },
+    "is_auction": true,
+    "auction_info": {
+      "current_bid": "4.0 ETH",
+      "bid_by": "CryptoWhale",
+      "time": "Ended"
+    }
+  },
+  {
+    "id": 24,
+    "nft_details": {
+      "title": "Quantum Particle #7",
+      "description": "Visual representation of a particle existing in multiple states at once.",
+      "image_url": "/images/quantum_7.jpg",
+      "status": "available",
+      "price": "1.3 ETH",
+      "creator": "MindForm",
+      "owner": "MindForm"
+    },
+    "is_auction": false,
+    "auction_info": null
+  }
+]

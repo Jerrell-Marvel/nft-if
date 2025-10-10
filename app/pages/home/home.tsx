@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "./home.scss";
-import Filter from "~/components/icons/filter/Filter";
-import FilterModal from "~/components/filter-modal/FilterModal";
+import jsonNftData from "../../nft-data.json";
+import jsonCollectionNftData from "../../nft-collection-data.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,9 +18,19 @@ export function meta({}: Route.MetaArgs) {
 
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
 
+const nftData1 = jsonNftData.slice(0, 8);
+const nftData2 = jsonNftData.slice(8, 16);
+const nftData3 = jsonNftData.slice(16);
+const nftData = [nftData1, nftData2, nftData3];
+
+const nftCollectionData = [jsonCollectionNftData, jsonCollectionNftData, jsonCollectionNftData];
+type NftData = (typeof nftData)[0][0];
+type NftCollectionData = (typeof nftCollectionData)[0][0];
+
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedImage, setSelectedImage] = useState(imgUrls[0]);
+  const [selectedNft, setSelectedNft] = useState<NftData | null>(nftData[0][0]);
+  const [selectedCollectionNft, setSelectedCollectionNft] = useState<NftCollectionData | null>(nftCollectionData[0][0]);
 
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
@@ -28,15 +38,15 @@ export default function Home() {
 
   const getActiveDisplay = () => {
     const displayValue = searchParams.get("display");
-    if (displayValue === "Collection") {
+    if (displayValue === "collection") {
       return displayValue;
     }
-    return "Single";
+    return "single";
   };
 
   const changeDisplay = () => {
     setSearchParams({
-      display: getActiveDisplay() === "Single" ? "Collection" : "Single",
+      display: getActiveDisplay() === "single" ? "collection" : "single",
     });
   };
 
@@ -48,19 +58,15 @@ export default function Home() {
   return (
     <>
       <Swiper
-        // Pass modules
         modules={[Navigation, Pagination]}
         className="mySwiper"
-        // Configure Navigation
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        // Configure Pagination
         pagination={{
           el: paginationRef.current,
           type: "fraction",
-          // Custom render function for the fraction
           renderFraction: function (currentClass, totalClass) {
             return (
               '<span class="' +
@@ -73,7 +79,6 @@ export default function Home() {
             );
           },
         }}
-        // This is important: it re-initializes Swiper after the refs are mounted
         onBeforeInit={(swiper) => {
           //@ts-ignore
           swiper.params.navigation.prevEl = navigationPrevRef.current;
@@ -88,34 +93,205 @@ export default function Home() {
       </Swiper>
       <FilterModal show={isModalOpen} onClose={closeModal} />
       <main className="home-page main-container nav-padding">
-        <div className="content">
-          <div className="left-container">
-            <div>
-              <h1 className="gradient-text">Mountain Cliffs NFT</h1>
+        <div className="left-container">
+          <div>
+            <h1 className="gradient-text">{selectedNft?.nft_details.title}</h1>
 
-              <div className="nft-desc-container">
-                <img src={selectedImage} className="img-item" />
+            <div className="nft-desc-container">
+              {/* <img
+                src={selectedNft?.nft_details.image_url}
+                className="img-item"
+              /> */}
+              <img
+                src={getActiveDisplay() === "single" ? selectedNft?.nft_details.image_url : selectedCollectionNft?.items[0].nft_details.image_url}
+                className="img-item"
+              />
 
-                <p className="gradient-text">
-                  A dramatic coastal scene where towering white cliffs meet the
-                  restless ocean. The cliffs rise steeply from the narrow strip
-                  of beach, their faces streaked with earthy tones and patches
-                  of greenery. breaking into white foam as waves lap onto the
-                  sand. The coastline curves gracefully into the distance,
-                  giving a sense of both grandeur and solitude, as if this
-                  rugged place belongs more to nature than to people.
-                </p>
+              <div className="detail-wrapper">
+                <div className="detail-item">
+                  <p>Creator :</p>
+                  <p>{selectedNft?.nft_details.creator}</p>
+                </div>
+
+                {getActiveDisplay() === "collection" ? (
+                  <div className="detail-item">
+                    <p>Number of NFTs :</p>
+                    <p>{selectedCollectionNft?.items.length}</p>
+                  </div>
+                ) : null}
+
+                <div className="detail-item">
+                  <p>Status :</p>
+                  <p>{selectedNft?.nft_details.status}</p>
+                </div>
+
+                {selectedNft?.is_auction ? (
+                  <>
+                    <p className="auct-text">Auction Info</p>
+                    <div className="auct-wrapper">
+                      <div className="detail-item">
+                        <p>Current bid :</p>
+                        <p>{selectedNft?.auction_info?.current_bid}</p>
+                      </div>
+
+                      <div className="detail-item">
+                        <p>Bid by :</p>
+                        <p>{selectedNft?.auction_info?.bid_by}</p>
+                      </div>
+
+                      <div className="detail-item">
+                        <p>Time :</p>
+                        <p>{selectedNft?.auction_info?.time}</p>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
               </div>
             </div>
 
-            <Link to="/purchase/1123123">
-              <button className="btn">Detail</button>
-            </Link>
+          <div className="type-container">
+            <p
+              onClick={changeDisplay}
+              className={`${getActiveDisplay() === "single" && "type-active"}`}
+            >
+              Single
+            </p>
+            <p
+              onClick={changeDisplay}
+              className={`${getActiveDisplay() === "collection" && "type-active"}`}
+            >
+              Collection
+            </p>
+            {/* <p className="gradient-text">Display : {getActiveDisplay()}</p>
+            <button
+              className="btn"
+              onClick={changeDisplay}
+            >
+              {getActiveDisplay() === "single" ? "Collections" : "Single"}
+            </button> */}
           </div>
 
-          <div className="right-container">
-            <div className="filter-container">
-              <Filter onClick={openModal} />
+          <Swiper
+            // Pass modules
+            modules={[Navigation, Pagination]}
+            className="mySwiper"
+            // Configure Navigation
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            // Configure Pagination
+            pagination={{
+              el: paginationRef.current,
+              type: "fraction",
+              // Custom render function for the fraction
+              renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
+              },
+            }}
+            // This is important: it re-initializes Swiper after the refs are mounted
+            onBeforeInit={(swiper) => {
+              //@ts-ignore
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              //@ts-ignore
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+              //@ts-ignore
+              swiper.params.pagination.el = paginationRef.current;
+            }}
+          >
+            {getActiveDisplay() === "single"
+              ? nftData.map((nftList) => {
+                  return (
+                    <SwiperSlide>
+                      <div
+                        className="img-container"
+                        // style={{
+                        //   backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
+                        // }}
+                      >
+                        {nftList.map((data) => {
+                          return (
+                            <div
+                              className="nft-card"
+                              key={data.nft_details.image_url}
+                              onClick={() => {
+                                if (window.innerWidth < 768) {
+                                  window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: "smooth",
+                                  });
+                                }
+                                setSelectedNft(data);
+                              }}
+                            >
+                              <div className="img-item">
+                                <img
+                                  src={data.nft_details.image_url}
+                                  className="real-img"
+                                />
+                              </div>
+
+                              <p>{data.nft_details.title}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </SwiperSlide>
+                  );
+                })
+              : nftCollectionData.map((nftCollectionDataPage) => {
+                  return (
+                    <SwiperSlide>
+                      <div
+                        className="img-container"
+                        // style={{
+                        //   backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
+                        // }}
+                      >
+                        {nftCollectionDataPage.map((group) => {
+                          return (
+                            <div
+                              className="nft-card"
+                              key={group.group_name}
+                              onClick={() => {
+                                if (window.innerWidth < 768) {
+                                  window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: "smooth",
+                                  });
+                                }
+                                // setSelectedNft(group);
+                                setSelectedCollectionNft(group);
+                              }}
+                            >
+                              <div className="img-item">
+                                <img
+                                  src={group.items[0].nft_details.image_url}
+                                  className="real-img"
+                                />
+                              </div>
+
+                              <p>{group.group_name}</p>
+                            </div>
+                            // group.items.map((nftData)=>{
+
+                            // })
+                          );
+                        })}
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+          </Swiper>
+
+          <div className="custom-controls-container">
+            <div
+              ref={navigationPrevRef}
+              className="custom-button custom-button-prev"
+            >
+              left
             </div>
             <h1 className="gradient-text">Check our NFT product</h1>
 
