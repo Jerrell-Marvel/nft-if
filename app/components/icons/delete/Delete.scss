@@ -1,0 +1,10 @@
+.delete-icon {
+  cursor: pointer;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+}
+
+.cart-item .delete-container:hover .delete-icon {
+  color: #ef4444;
+  transform: scale(1.1);
+}
