@@ -1,6 +1,9 @@
 import { Link, useNavigate, useParams } from "react-router";
 import "./purchase.scss";
 import { toast } from "react-toastify";
+import jsonNftData from "../../nft-data.json";
+import { useEffect, useState } from "react";
+import type { json } from "stream/consumers";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -8,21 +11,7 @@ import { toast } from "react-toastify";
 
 // }
 
-const data = {
-  id: 2,
-  nft_details: {
-    title: "Cyber Cityscape #22",
-    description:
-      "A glimpse into the neon-drenched streets of a futuristic metropolis. This piece immerses the viewer in a world of towering skyscrapers, holographic advertisements that flicker in the perpetual twilight, and flying vehicles that weave through the canyons of steel and glass. The rain-slicked streets reflect the vibrant glow, creating a stunning visual of a high-tech, dystopian future.",
-    image_url: "/images/Cyber-Cityscape.jpg",
-    status: "available",
-    price: "0.8 ETH",
-    creator: "NeoPixel",
-    owner: "NeoPixel",
-  },
-  is_auction: false,
-  auction_info: null,
-};
+const data = jsonNftData.find((nftData) => {});
 
 const nftProperties = [
   {
@@ -46,13 +35,29 @@ const nftProperties = [
 export default function Purchase() {
   const { nftId } = useParams();
   const navigate = useNavigate();
+
+  const [data, setData] = useState<(typeof jsonNftData)[0]>();
+
+  useEffect(() => {
+    const nftData = jsonNftData.find((nftData) => nftData.id === parseInt(nftId!));
+
+    setData(nftData);
+  }, []);
+
+  if (!data) {
+    return null;
+  }
+
   return (
     <main className="purchase-page main-container nav-padding">
       {/* <h3>NFT ID : {nftId}</h3> */}
 
       <div className="left-container">
         <div className="img-frame">
-          <img src={data.nft_details.image_url} className="img-item" />
+          <img
+            src={data.nft_details.image_url}
+            className="img-item"
+          />
         </div>
 
         <div className="details">
@@ -60,7 +65,10 @@ export default function Purchase() {
           <div className="details-content">
             {nftProperties.map((property) => {
               return (
-                <div key={property.displayName} className="categories">
+                <div
+                  key={property.displayName}
+                  className="categories"
+                >
                   <span className="labels">{property.displayName}</span>
                   <span className="values">{property.value}</span>
                 </div>
@@ -84,6 +92,9 @@ export default function Purchase() {
             className="btn"
             onClick={() => {
               toast.success("Item has been added to the cart.");
+              const cart = retriveCart();
+
+              cart.push();
 
               setTimeout(() => {
                 navigate("/cart"); // This runs after 1 second

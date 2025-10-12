@@ -1,6 +1,14 @@
 [
   {
-    "group_name": "Group 1",
+    "group_id": 1,
+    "group_name": "Digital Realms Collection",
+    "price": "1.5 ETH",
+    "is_auction": false,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "1.20 ETH",
+      "ending_soonest": "12 hours left"
+    },
     "items": [
       {
         "id": 1,
@@ -51,7 +59,15 @@
     ]
   },
   {
-    "group_name": "Group 2",
+    "group_id": 2,
+    "group_name": "Fantasy Frontiers",
+    "price": "2.5 ETH",
+    "is_auction": true,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "0.75 ETH",
+      "ending_soonest": "2 days left"
+    },
     "items": [
       {
         "id": 4,
@@ -106,7 +122,15 @@
     ]
   },
   {
-    "group_name": "Group 3",
+    "group_id": 3,
+    "group_name": "Modern Muses",
+    "price": "0.5 ETH",
+    "is_auction": true,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "2.10 ETH",
+      "ending_soonest": "4 hours left"
+    },
     "items": [
       {
         "id": 7,
@@ -157,7 +181,11 @@
     ]
   },
   {
-    "group_name": "Group 4",
+    "group_id": 4,
+    "group_name": "Majestic Vistas",
+    "is_auction": false,
+    "auction_details": null,
+    "price": "1.75 ETH",
     "items": [
       {
         "id": 10,
@@ -189,7 +217,11 @@
           "owner": null
         },
         "is_auction": true,
-        "auction_info": { "current_bid": null, "bid_by": null, "time": null }
+        "auction_info": {
+          "current_bid": null,
+          "bid_by": null,
+          "time": null
+        }
       },
       {
         "id": 12,
@@ -208,7 +240,15 @@
     ]
   },
   {
-    "group_name": "Group 5",
+    "group_id": 5,
+    "group_name": "Illuminated Worlds",
+    "is_auction": true,
+    "price": "1 ETH",
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "0.90 ETH",
+      "ending_soonest": "Ending soon"
+    },
     "items": [
       {
         "id": 13,
@@ -259,7 +299,15 @@
     ]
   },
   {
-    "group_name": "Group 6",
+    "group_id": 6,
+    "group_name": "Myths and Marvels",
+    "is_auction": true,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "5.50 ETH",
+      "ending_soonest": "1 hour left"
+    },
+    "price": "0.05 ETH",
     "items": [
       {
         "id": 16,
@@ -310,7 +358,15 @@
     ]
   },
   {
-    "group_name": "Group 7",
+    "group_id": 7,
+    "group_name": "Icons Reimagined",
+    "is_auction": true,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "1.80 ETH",
+      "ending_soonest": "3 days left"
+    },
+    "price": "1.5 ETH",
     "items": [
       {
         "id": 19,
@@ -361,7 +417,15 @@
     ]
   },
   {
-    "group_name": "Group 8",
+    "group_id": 8,
+    "group_name": "Forces of Creation",
+    "is_auction": false,
+    "auction_details": {
+      "items_on_auction": 1,
+      "highest_bid": "3.20 ETH",
+      "ending_soonest": "22 hours left"
+    },
+    "price": "1.5 ETH",
     "items": [
       {
         "id": 22,

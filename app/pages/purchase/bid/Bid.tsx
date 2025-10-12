@@ -1,8 +1,9 @@
 import { Link, useNavigate, useParams } from "react-router";
 import "./bid.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import BidModal from "~/components/bid-modal/BidModal";
+import jsonNftData from "../../../nft-data.json";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -10,21 +11,21 @@ import BidModal from "~/components/bid-modal/BidModal";
 
 // }
 
-const data = {
-  id: 2,
-  nft_details: {
-    title: "Cyber Cityscape #22",
-    description:
-      "A glimpse into the neon-drenched streets of a futuristic metropolis. This piece immerses the viewer in a world of towering skyscrapers, holographic advertisements that flicker in the perpetual twilight, and flying vehicles that weave through the canyons of steel and glass. The rain-slicked streets reflect the vibrant glow, creating a stunning visual of a high-tech, dystopian future.",
-    image_url: "/images/Cyber-Cityscape.jpg",
-    status: "available",
-    price: "0.8 ETH",
-    creator: "NeoPixel",
-    owner: "NeoPixel",
-  },
-  is_auction: false,
-  auction_info: null,
-};
+// const data = {
+//   id: 2,
+//   nft_details: {
+//     title: "Cyber Cityscape #22",
+//     description:
+//       "A glimpse into the neon-drenched streets of a futuristic metropolis. This piece immerses the viewer in a world of towering skyscrapers, holographic advertisements that flicker in the perpetual twilight, and flying vehicles that weave through the canyons of steel and glass. The rain-slicked streets reflect the vibrant glow, creating a stunning visual of a high-tech, dystopian future.",
+//     image_url: "/images/Cyber-Cityscape.jpg",
+//     status: "available",
+//     price: "0.8 ETH",
+//     creator: "NeoPixel",
+//     owner: "NeoPixel",
+//   },
+//   is_auction: false,
+//   auction_info: null,
+// };
 
 const nftProperties = [
   {
@@ -54,23 +55,39 @@ export default function Bid() {
   const closeModal = (): void => setIsModalOpen(false);
   const navigate = useNavigate();
 
+  const { nftId } = useParams();
+  const [data, setData] = useState<(typeof jsonNftData)[0]>();
+
+  useEffect(() => {
+    const nftData = jsonNftData.find((nftData) => nftData.id === parseInt(nftId!));
+
+    setData(nftData);
+  }, []);
+
+  if (!data) {
+    return null;
+  }
+
   const handleBidSuccess = (newBidAmount: number) => {
     console.log(`New bid placed: ${newBidAmount} ETH`);
-    setCurrentBid(newBidAmount); // Update the current bid price
+    setCurrentBid(newBidAmount);
     toast.success("Item has been added to the cart.");
 
     setTimeout(() => {
-      navigate("/cart"); // This runs after 1 second
+      navigate("/cart");
     }, 1000);
-    closeModal(); // Close the modal
+    closeModal();
   };
-  const { nftId } = useParams();
+
   return (
     <main className="bid-page main-container nav-padding">
       {/* <h3>NFT ID : {nftId}</h3> */}
       <div className="left-container">
         <div className="img-frame">
-          <img src={data.nft_details.image_url} className="img-item" />
+          <img
+            src={data.nft_details.image_url}
+            className="img-item"
+          />
         </div>
 
         <div className="details">
@@ -78,7 +95,10 @@ export default function Bid() {
           <div className="details-content">
             {nftProperties.map((property) => {
               return (
-                <div key={property.displayName} className="categories">
+                <div
+                  key={property.displayName}
+                  className="categories"
+                >
                   <span className="labels">{property.displayName}</span>
                   <span className="values">{property.value}</span>
                 </div>
@@ -109,7 +129,10 @@ export default function Bid() {
             </div>
           </div>
 
-          <button className="btn" onClick={openModal}>
+          <button
+            className="btn"
+            onClick={openModal}
+          >
             Place a bid
           </button>
           <BidModal
@@ -123,12 +146,8 @@ export default function Bid() {
         <div className="description">
           <h3>Description</h3>
           <p>
-            This comb is meticulously hand-carved from ethically sourced
-            obsidian, prized for its smooth texture and grounding properties.
-            The spine is inlaid with a single line of sterling silver, offering
-            a balanced weight and a touch of elegance. Designed to glide
-            effortlessly through hair, it stimulates the scalp and distributes
-            natural oils for a vibrant, healthy shine.
+            This comb is meticulously hand-carved from ethically sourced obsidian, prized for its smooth texture and grounding properties. The spine is inlaid with a single line of sterling silver, offering a balanced weight and a touch of
+            elegance. Designed to glide effortlessly through hair, it stimulates the scalp and distributes natural oils for a vibrant, healthy shine.
           </p>
         </div>
 

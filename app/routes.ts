@@ -8,20 +8,11 @@ export default [
   route("/admin-sign-up", "pages/admin-sign-up/AdminSignUp.tsx"),
   route("/admin-sign-in", "pages/admin-sign-in/AdminSignIn.tsx"),
   route("/reset-password", "pages/reset-password/ResetPassword.tsx"),
-  route(
-    "/reset-password/form",
-    "pages/reset-password-form/ResetPasswordForm.tsx"
-  ),
+  route("/reset-password/form", "pages/reset-password-form/ResetPasswordForm.tsx"),
   route("/purchase/:nftId", "pages/purchase/Purchase.tsx"),
   route("/purchase/bid/:nftId", "pages/purchase/bid/Bid.tsx"),
   route("/cart", "pages/cart/Cart.tsx"),
   route("/profile", "pages/profile/Profile.tsx"),
-  route(
-    "/purchase/collection/:collectionId",
-    "pages/purchase-collection/PurchaseCollection.tsx"
-  ),
-  route(
-    "/purchase/bid/collection/:collectionId",
-    "pages/purchase-collection/bidCollection.tsx"
-  ),
+  route("/purchase/collection/:groupId", "pages/purchase-collection/PurchaseCollection.tsx"),
+  route("/purchase/bid/collection/:groupId", "pages/purchase-collection/bidCollection.tsx"),
 ] satisfies RouteConfig;

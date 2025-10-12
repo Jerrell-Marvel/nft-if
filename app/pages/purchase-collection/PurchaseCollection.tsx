@@ -32,12 +32,6 @@ type NftData = {
   } | null;
 };
 
-const firstGroup: NftCollectionData = jsonCollectionNftData[0];
-const nftData1 = firstGroup.items[0];
-const nftData2 = firstGroup.items[1];
-const nftData3 = firstGroup.items[2];
-const nftDataShow = [nftData1, nftData2, nftData3];
-
 const nftProperties = [
   {
     displayName: "Token ID",
@@ -77,20 +71,24 @@ const nftProperties = [
 // ];
 
 export default function PurchaseCollection() {
-  const { nftId } = useParams();
+  const { groupId } = useParams();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const paginationRef = useRef(null);
   // const [selectedNft, setSelectedNft] = useState<NftData | null>(
   //   firstGroup?.items?.[0] ?? null
   // );
-  const [description, setDescription] = useState<string>(
-    nftDataShow[0].nft_details.description
-  );
+
+  const firstGroup: NftCollectionData = jsonCollectionNftData.find((n) => n.group_id === parseInt(groupId!))!;
+  console.log(firstGroup);
+  const nftData1 = firstGroup.items[0];
+  const nftData2 = firstGroup.items[1];
+  const nftData3 = firstGroup.items[2];
+  const nftDataShow = [nftData1, nftData2, nftData3];
+
+  const [description, setDescription] = useState<string>(nftDataShow[0].nft_details.description);
   const [title, setTitle] = useState<string>(nftDataShow[0].nft_details.title);
-  const [creator, setCreator] = useState<string | null>(
-    nftDataShow[0].nft_details.creator
-  );
+  const [creator, setCreator] = useState<string | null>(nftDataShow[0].nft_details.creator);
   const [index, setIndex] = useState<number>(1);
   const navigate = useNavigate();
   return (
@@ -115,15 +113,7 @@ export default function PurchaseCollection() {
               type: "fraction",
               // Custom render function for the fraction
               renderFraction: function (currentClass, totalClass) {
-                return (
-                  '<span class="' +
-                  currentClass +
-                  '"></span>' +
-                  " of " +
-                  '<span class="' +
-                  totalClass +
-                  '"></span>'
-                );
+                return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
               },
             }}
             // This is important: it re-initializes Swiper after the refs are mounted
@@ -191,7 +181,10 @@ export default function PurchaseCollection() {
             >
               left
             </div>
-            <div ref={paginationRef} className="custom-pagination"></div>
+            <div
+              ref={paginationRef}
+              className="custom-pagination"
+            ></div>
             <div
               ref={navigationNextRef}
               className="custom-button custom-button-next"
@@ -207,7 +200,10 @@ export default function PurchaseCollection() {
             <div className="details-content">
               {nftProperties.map((property) => {
                 return (
-                  <div key={property.displayName} className="categories">
+                  <div
+                    key={property.displayName}
+                    className="categories"
+                  >
                     <span className="labels">{property.displayName}</span>
                     <span className="values">{property.value}</span>
                   </div>
@@ -237,7 +233,7 @@ export default function PurchaseCollection() {
         <div className="right-container">
           <div className="collection-title-container">
             <div className="title">
-              <h1 className="collection">Collection 2</h1>
+              <h1 className="collection">{firstGroup.group_name}</h1>
             </div>
             <div className="index">
               #{index}/{nftDataShow.length}

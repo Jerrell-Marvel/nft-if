@@ -110,45 +110,77 @@ export default function Home() {
                 </div>
 
                 {getActiveDisplay() === "collection" ? (
-                  <div className="detail-item">
-                    <p>Number of NFTs :</p>
-                    <p>{selectedCollectionNft?.items.length}</p>
-                  </div>
-                ) : null}
-
-                <div className="detail-item">
-                  <p>Status :</p>
-                  <p>{selectedNft?.nft_details.status}</p>
-                </div>
-
-                {selectedNft?.is_auction ? (
                   <>
-                    <p className="auct-text">Auction Info</p>
-                    <div className="auct-wrapper">
-                      <div className="detail-item">
-                        <p>Current bid :</p>
-                        <p>{selectedNft?.auction_info?.current_bid}</p>
-                      </div>
-
-                      <div className="detail-item">
-                        <p>Bid by :</p>
-                        <p>{selectedNft?.auction_info?.bid_by}</p>
-                      </div>
-
-                      <div className="detail-item">
-                        <p>Time :</p>
-                        <p>{selectedNft?.auction_info?.time}</p>
-                      </div>
+                    <div className="detail-item">
+                      <p>Number of NFTs :</p>
+                      <p>{selectedCollectionNft?.items.length}</p>
                     </div>
+
+                    {selectedCollectionNft?.is_auction ? (
+                      <>
+                        <p className="auct-text">Auction Info</p>
+                        <div className="auct-wrapper">
+                          <div className="detail-item">
+                            <p>Current bid :</p>
+                            <p>{selectedCollectionNft?.auction_details?.highest_bid}</p>
+                          </div>
+
+                          <div className="detail-item">
+                            <p>Time :</p>
+                            <p>{selectedCollectionNft?.auction_details?.ending_soonest}</p>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="detail-item">
+                        <p>Price :</p>
+                        <p>{selectedCollectionNft?.price}</p>
+                      </div>
+                    )}
                   </>
-                ) : null}
+                ) : (
+                  <>
+                    {selectedNft?.is_auction ? (
+                      <>
+                        <p className="auct-text">Auction Info</p>
+                        <div className="auct-wrapper">
+                          <div className="detail-item">
+                            <p>Current bid :</p>
+                            <p>{selectedNft?.auction_info?.current_bid}</p>
+                          </div>
+
+                          <div className="detail-item">
+                            <p>Bid by :</p>
+                            <p>{selectedNft?.auction_info?.bid_by}</p>
+                          </div>
+
+                          <div className="detail-item">
+                            <p>Time :</p>
+                            <p>{selectedNft?.auction_info?.time}</p>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="detail-item">
+                        <p>Price :</p>
+                        <p>{selectedNft?.nft_details.price}</p>
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </div>
 
-          <Link to="/purchase/1123123">
-            <button className="btn">Detail</button>
-          </Link>
+          {getActiveDisplay() === "collection" ? (
+            <Link to={`/purchase/${selectedCollectionNft?.is_auction ? "bid/" : ""}collection/${selectedCollectionNft?.group_id}`}>
+              <button className="btn">Detail</button>
+            </Link>
+          ) : (
+            <Link to={`/purchase/${selectedNft?.is_auction ? "bid/" : ""}${selectedNft?.id}`}>
+              <button className="btn">Detail</button>
+            </Link>
+          )}
         </div>
 
         <div className="right-container">
@@ -221,6 +253,7 @@ export default function Home() {
                         {nftList.map((data) => {
                           return (
                             <div
+                              // to={`/purchase${data.is_auction ? "/bid" : "/"}${data.id}`}
                               className="nft-card"
                               key={data.nft_details.image_url}
                               onClick={() => {
@@ -262,6 +295,7 @@ export default function Home() {
                           return (
                             <div
                               className="nft-card"
+                              // to={`/purchase${group.is_auction ? "/bid" : "/"}/collection/${group.group_id}`}
                               key={group.group_name}
                               onClick={() => {
                                 if (window.innerWidth < 768) {

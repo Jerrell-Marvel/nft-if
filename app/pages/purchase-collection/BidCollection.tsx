@@ -33,11 +33,11 @@ type NftData = {
   } | null;
 };
 
-const firstGroup: NftCollectionData = jsonCollectionNftData[0];
-const nftData1 = firstGroup.items[0];
-const nftData2 = firstGroup.items[1];
-const nftData3 = firstGroup.items[2];
-const nftDataShow = [nftData1, nftData2, nftData3];
+// const firstGroup: NftCollectionData = jsonCollectionNftData[0];
+// const nftData1 = firstGroup.items[0];
+// const nftData2 = firstGroup.items[1];
+// const nftData3 = firstGroup.items[2];
+// const nftDataShow = [nftData1, nftData2, nftData3];
 
 const nftProperties = [
   {
@@ -79,6 +79,7 @@ const nftProperties = [
 
 export default function BidCollection() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const { groupId } = useParams();
 
   const [currentBid, setCurrentBid] = useState<number>(0.5);
 
@@ -86,31 +87,33 @@ export default function BidCollection() {
   const closeModal = (): void => setIsModalOpen(false);
   const navigate = useNavigate();
 
-  // This function would be called when a bid is successfully placed
+  const firstGroup: NftCollectionData = jsonCollectionNftData.find((n) => n.group_id === parseInt(groupId!))!;
+  console.log(firstGroup);
+  const nftData1 = firstGroup.items[0];
+  const nftData2 = firstGroup.items[1];
+  const nftData3 = firstGroup.items[2];
+  const nftDataShow = [nftData1, nftData2, nftData3];
+
   const handleBidSuccess = (newBidAmount: number) => {
     console.log(`New bid placed: ${newBidAmount} ETH`);
-    setCurrentBid(newBidAmount); // Update the current bid price
+    setCurrentBid(newBidAmount);
     toast.success("Item has been added to the cart.");
 
     setTimeout(() => {
-      navigate("/cart"); // This runs after 1 second
+      navigate("/cart");
     }, 1000);
-    closeModal(); // Close the modal
+    closeModal();
   };
-  const { nftId } = useParams();
+
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const paginationRef = useRef(null);
   // const [selectedNft, setSelectedNft] = useState<NftData | null>(
   //   firstGroup?.items?.[0] ?? null
   // );
-  const [description, setDescription] = useState<string>(
-    nftDataShow[0].nft_details.description
-  );
+  const [description, setDescription] = useState<string>(nftDataShow[0].nft_details.description);
   const [title, setTitle] = useState<string>(nftDataShow[0].nft_details.title);
-  const [creator, setCreator] = useState<string | null>(
-    nftDataShow[0].nft_details.creator
-  );
+  const [creator, setCreator] = useState<string | null>(nftDataShow[0].nft_details.creator);
   const [index, setIndex] = useState<number>(1);
   return (
     <>
@@ -134,15 +137,7 @@ export default function BidCollection() {
               type: "fraction",
               // Custom render function for the fraction
               renderFraction: function (currentClass, totalClass) {
-                return (
-                  '<span class="' +
-                  currentClass +
-                  '"></span>' +
-                  " of " +
-                  '<span class="' +
-                  totalClass +
-                  '"></span>'
-                );
+                return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
               },
             }}
             // This is important: it re-initializes Swiper after the refs are mounted
@@ -210,7 +205,10 @@ export default function BidCollection() {
             >
               left
             </div>
-            <div ref={paginationRef} className="custom-pagination"></div>
+            <div
+              ref={paginationRef}
+              className="custom-pagination"
+            ></div>
             <div
               ref={navigationNextRef}
               className="custom-button custom-button-next"
@@ -226,7 +224,10 @@ export default function BidCollection() {
             <div className="details-content">
               {nftProperties.map((property) => {
                 return (
-                  <div key={property.displayName} className="categories">
+                  <div
+                    key={property.displayName}
+                    className="categories"
+                  >
                     <span className="labels">{property.displayName}</span>
                     <span className="values">{property.value}</span>
                   </div>
@@ -277,7 +278,10 @@ export default function BidCollection() {
               </div>
             </div>
 
-            <button className="btn" onClick={openModal}>
+            <button
+              className="btn"
+              onClick={openModal}
+            >
               Place a bid
             </button>
             <BidModal
