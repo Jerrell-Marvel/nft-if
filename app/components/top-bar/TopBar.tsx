@@ -1,12 +1,14 @@
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import "./topbar.scss";
 import { useState, useEffect } from "react";
 
 export default function TopBar() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [navActive, setNavActive] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const profile = localStorage.getItem("profile");
@@ -48,12 +50,16 @@ export default function TopBar() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                navigate("/");
+
+                navigate(`/?q=${searchQuery}`);
               }}
             >
               <input
                 type="text"
                 placeholder="Search NFT"
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                }}
               />
             </form>
           </div>

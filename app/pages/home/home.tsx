@@ -12,10 +12,7 @@ import Filter from "~/components/icons/filter/Filter";
 import FilterModal from "~/components/filter-modal/FilterModal";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
 }
 
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
@@ -25,23 +22,20 @@ const nftData2 = jsonNftData.slice(8, 16);
 const nftData3 = jsonNftData.slice(16);
 const nftData = [nftData1, nftData2, nftData3];
 
-const nftCollectionData = [
-  jsonCollectionNftData,
-  jsonCollectionNftData,
-  jsonCollectionNftData,
-];
+const nftCollectionData = [jsonCollectionNftData, jsonCollectionNftData, jsonCollectionNftData];
 type NftData = (typeof nftData)[0][0];
 type NftCollectionData = (typeof nftCollectionData)[0][0];
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedNft, setSelectedNft] = useState<NftData | null>(nftData[0][0]);
-  const [selectedCollectionNft, setSelectedCollectionNft] =
-    useState<NftCollectionData | null>(nftCollectionData[0][0]);
+  const [selectedCollectionNft, setSelectedCollectionNft] = useState<NftCollectionData | null>(nftCollectionData[0][0]);
 
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const paginationRef = useRef(null);
+
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -75,15 +69,7 @@ export default function Home() {
           el: paginationRef.current,
           type: "fraction",
           renderFraction: function (currentClass, totalClass) {
-            return (
-              '<span class="' +
-              currentClass +
-              '"></span>' +
-              " of " +
-              '<span class="' +
-              totalClass +
-              '"></span>'
-            );
+            return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
           },
         }}
         onBeforeInit={(swiper) => {
@@ -98,7 +84,10 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
-      <FilterModal show={isModalOpen} onClose={closeModal} />
+      <FilterModal
+        show={isModalOpen}
+        onClose={closeModal}
+      />
       <main className="home-page main-container nav-padding">
         <div className="left-container">
           <div>
@@ -110,11 +99,7 @@ export default function Home() {
                 className="img-item"
               /> */}
               <img
-                src={
-                  getActiveDisplay() === "single"
-                    ? selectedNft?.nft_details.image_url
-                    : selectedCollectionNft?.items[0].nft_details.image_url
-                }
+                src={getActiveDisplay() === "single" ? selectedNft?.nft_details.image_url : selectedCollectionNft?.items[0].nft_details.image_url}
                 className="img-item"
               />
 
@@ -191,7 +176,8 @@ export default function Home() {
             </button> */}
           </div>
           <div className="filter-container">
-            <span>Showing result of "..."</span>
+            {searchParams.get("q") ? <span>Showing result of "{searchParams.get("q")}"</span> : null}
+
             <Filter onClick={openModal} />
           </div>
           <Swiper
@@ -209,15 +195,7 @@ export default function Home() {
               type: "fraction",
               // Custom render function for the fraction
               renderFraction: function (currentClass, totalClass) {
-                return (
-                  '<span class="' +
-                  currentClass +
-                  '"></span>' +
-                  " of " +
-                  '<span class="' +
-                  totalClass +
-                  '"></span>'
-                );
+                return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
               },
             }}
             // This is important: it re-initializes Swiper after the refs are mounted
@@ -324,7 +302,10 @@ export default function Home() {
             >
               left
             </div>
-            <div ref={paginationRef} className="custom-pagination"></div>
+            <div
+              ref={paginationRef}
+              className="custom-pagination"
+            ></div>
             <div
               ref={navigationNextRef}
               className="custom-button custom-button-next"
