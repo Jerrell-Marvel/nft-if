@@ -89,6 +89,15 @@
         padding-left: 12px;
         background-color: #2c2c2c;
 
+        form {
+          display: flex;
+          align-items: center;
+        }
+
+        .btn {
+          width: fit-content;
+        }
+
         .search-icon,
         .filter-button svg {
           height: 20px;
@@ -123,6 +132,14 @@
       display: flex;
       align-items: center;
       gap: 20px;
+
+      .sign-in-btn {
+        background-color: var.$tertiary-black;
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+      }
 
       .explore-button {
         color: #ffffff;

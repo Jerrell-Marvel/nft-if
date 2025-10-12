@@ -47,7 +47,9 @@ export default function AdminSignInPage() {
         </div>
         <button
           onClick={() => {
-            navigate("/");
+            localStorage.setItem("profile", email);
+            window.location.reload();
+            window.location.href = "/";
           }}
           className={`btn ${!password || !isValidEmail(email) ? "disabled-btn" : ""}`}
           disabled={!password || !isValidEmail(email) ? true : false}
