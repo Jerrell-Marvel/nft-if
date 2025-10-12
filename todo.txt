@@ -1,3 +1,106 @@
-mata show password
-ganti warna input
-extract ke variable -> warna
+GENERAL REQUIREMENTS
+Must use React Functional components and follow React JS best practices✅
+The data should be loaded from JSON files, please use your best judgment and create proper JSON file✅
+We don't have designs for mobile and tablet resolutions, but make sure your prototype scales well in any resolution and it looks good in all the devices i.e., without horizontal scrollbars. You can use flex/grid to achieve this✅
+Create reusable components as we are having similar designs across user/admin roles for some pages✅
+Try avoiding usage of any type (Typescript) as much as possible✅
+
+BROWSERS REQUIREMENTS
+Desktop: MS Edge, Latest Firefox, Latest Safari & Chrome Browsers (Mac & Windows)
+Tablet: Latest Android and Safari Browsers
+Mobile: Latest Android and Safari Browsers
+
+INDIVIDUAL REQUIREMENTS
+Admin Sign in screens (00 Login A - 00 Login D)
+Add validation for email field✅
+Sign in button should be disabled till user enters email and password✅
+Clicking on Sign Up will take user to 00 Login E screen ✅
+Add a small eye icon at the end of password field when clicked should hide/view of password✅
+Clicking on Reset password? should take the user to 00 Reset Password G screen✅
+
+Admin Sign Up screens (00 Login E - 00 Login F)
+Add validation for Enterprise Email field✅
+CREATE ACCOUNT button should be disabled till user fills in all the fields✅
+CREATE ACCOUNT button will take the user to the 02 User Account Access A screen✅
+Add a small eye icon at the end of password and confirm password field when clicked should hide/view of password✅
+Sign In button will take user back to 00 Login A✅
+
+User Sign in screen (01 User Account Creation A)
+Add validation for user email field✅
+Sign in button should be disabled till user enters email and password✅
+After successfull sign in, user will be taken to 02 User Account Access A✅
+Clicking on Sign Up will take user to 01 User Account Creation B screen✅
+Add a small eye icon at the end of password field when clicked should hide/view of password✅
+Clicking on Reset password? should take the user to 00 Reset Password G screen✅
+
+User Sign Up screens (01 User Account Creation B - 01 User Account Creation C)
+Add validation for User Email field✅
+CREATE ACCOUNT button should be disabled till user fills in all the fields✅
+CREATE ACCOUNT button will take the user to the 02 User Account Access A screen✅
+Add a small eye icon at the end of password and confirm password field when clicked should hide/view of password✅
+Hardcode the file size for both Upload Icon and Upload Banner for now as in design✅
+SELECT FILE should open the default browser file upload popup✅
+Only allow image files having the following extension .png, .jpg, .jpeg✅
+Sign In button will take user back to 01 User Account Creation A✅
+
+Reset password screens (000 Reset Password G - 00 Reset Password H)
+Add validation for Email field✅
+Disable RESET PASSWORD button until user enters valid email ❌
+Clicking on RESET PASSWORD should take user to 00 Reset Password H✅
+
+User Account Access screens (02 User Account Access A - 02 User Account Access B)
+
+Topbar
+This is common across all the screens ✅
+Clicking on the logo should take the user to 02 User Account Access A ✅
+When user enters something in Search NFT search box and presses Enter button, the user should be taken to 02 User Account Access A screen if he is in some other screen and show the results. The search should be done based on NFT name, NFT creator name, NFT enterprise name or NFT collection name, if the value matches with any of the mentioned fields, include them in the results. If no items matches, show No results matched message in the screen❌
+EXPLORE button should show a dropdown as shown in 06 Explore A. All the links are deadlink ✅
+Don't add the CREATE button at the top, only EXPLORE✅
+Show cart icon at the top header as shown here 05 Shopping Cart – Listed Assets and on click of that user should be navigated to 05 Shopping Cart – Listed Assets✅
+Read the balance and currency shown at the right from json file❌
+Clicking on the Avatar should show 01 Account Access H, read the User profile section below for more info✅
+
+Filter options
+The search, filters the results using more granularity, it will drill down the results further down after user searches something using the search bar in the Topbar or using the filter to the right❌
+Clicking on the filter icon should open the popup 06 Explore C, Read Filter popup section below for more info✅
+Sort by - By default everything should be sorted by Most Popular i.e., NFTs/Collections having most likes❌
+This page has two types of view✅
+Standalone - NFTs are shown one-by-one (02 User Account Access A)✅
+Collections - NFTs are shown grouped into collections (02 User Account Access B)✅
+Users can toggle between the views using the switch Collections✅
+
+Main Content
+Users can navigate between the items using the buttons at the bottom or Left/Right arrow present in the right side❓
+Each NFTs details are shown in the white detail box present at the left side which changes according to the selected item in case of both Standalone❓/Collection view❓
+VIEW DETAIL button will take the user to 03 NFT Purchase screen✅
+In 02 User Account Access B screen, date and time is missing in the white detail box, please add that❌
+
+User profile (01 Account Access H)
+Users can copy the wallet address to the clipboard using the page icon present besides the address✅
+Show only My Account, Preferences and Logout options✅
+CONNECT WALLET, My Account and Preferences buttons are deadlink✅
+
+Filter popup (06 Explore C)
+STATUS and CHAIN options should come from json file❓
+ATTRIBUTES should be a multi-select input field, options should come from json file❓
+Clicking on APPLY should filter the items based on the selection❌
+
+NFT Purchase screen (03 NFT Purchase)
+If the Sale Type is Fixed Price, show the ADD TO CART button✅
+If the Sale Type is Auction, show the PLACE A BID button with input box like in 04 Collection Purchase A screen✅
+On click of ADD TO CART button or PLACE A BID button, add the item to the cart❌
+Show the REVISE BID button after user places a bid, the value change should be reflected in cart on click❌
+On click of BACK button, the user will be taken to 02 User Account Access A screen❌
+
+Collection Purchase screen (04 Collection Purchase A)
+Follow the flow similar to NFT Purchase screen above✅
+
+Shopping cart (05 Shopping Cart – Listed Assets)
+After users add the items from either the NFT Purchase screen or Collection Purchase screen, the added items will be shown here❌
+Remove the item on click of delete icon✅
+Select Wallet dropdown values should come from JSON file✅
+CHECKOUT button is a deadlink✅
+
+Submission Deliverable
+Code base
+Make sure there are no lint errors

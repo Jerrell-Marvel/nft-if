@@ -86,16 +86,17 @@
     .title {
       display: flex;
       flex-direction: column;
+      gap: 0.8rem;
       h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       .creator {
         // align-items: center;
         // font-size: 0.875rem;
         display: flex;
         color: #60a5fa;
-        margin-bottom: 1rem;
-        gap: 1rem;
+        // margin-bottom: 1rem;
+        // gap: 1rem;
       }
     }
 
@@ -139,10 +140,9 @@
         gap: 1rem;
       }
 
-      a {
-        .btn {
-          width: 5rem;
-        }
+      .btn {
+        width: 7rem;
+        padding: 0.8rem 0.5rem;
       }
     }
 

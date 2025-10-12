@@ -198,70 +198,6 @@ export default function BidCollection() {
                         />
                       </div>
                     </div>
-                    <div className="details">
-                      {/* <h2>{nft_details.title}</h2> */}
-                      {/* <p>{nft_details.description}</p> */}
-                      <h2>Token Details</h2>
-
-                      <div className="details-content">
-                        {nftProperties.map((property) => {
-                          return (
-                            <div
-                              key={property.displayName}
-                              className="categories"
-                            >
-                              <span className="labels">
-                                {property.displayName}
-                              </span>
-                              <span className="values">{property.value}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* <div className="details-content">
-                        <div className="categories">
-                          <span className="labels">Status:</span>
-                          <span className="values">{nft_details.status}</span>
-                        </div>
-                        <div className="categories">
-                          <span className="labels">Creator:</span>
-                          <span className="values">{nft_details.creator}</span>
-                        </div>
-                        <div className="categories">
-                          <span className="labels">Owner:</span>
-                          <span className="values">{nft_details.owner}</span>
-                        </div>
-
-                        {data.is_auction ? (
-                          <>
-                            <div className="categories">
-                              <span className="labels">Current Bid:</span>
-                              <span className="values">
-                                {auction_info?.current_bid || "N/A"}
-                              </span>
-                            </div>
-                            <div className="categories">
-                              <span className="labels">Bid By:</span>
-                              <span className="values">
-                                {auction_info?.bid_by || "N/A"}
-                              </span>
-                            </div>
-                            <div className="categories">
-                              <span className="labels">Time Left:</span>
-                              <span className="values">
-                                {auction_info?.time || "N/A"}
-                              </span>
-                            </div>
-                          </>
-                        ) : (
-                          <div className="categories">
-                            <span className="labels">Price:</span>
-                            <span className="values">{nft_details.price}</span>
-                          </div>
-                        )}
-                      </div> */}
-                    </div>
                   </div>
                 </SwiperSlide>
               );
@@ -280,6 +216,22 @@ export default function BidCollection() {
               className="custom-button custom-button-next"
             >
               right
+            </div>
+          </div>
+          <div className="details">
+            {/* <h2>{nft_details.title}</h2> */}
+            {/* <p>{nft_details.description}</p> */}
+            <h2>Token Details</h2>
+
+            <div className="details-content">
+              {nftProperties.map((property) => {
+                return (
+                  <div key={property.displayName} className="categories">
+                    <span className="labels">{property.displayName}</span>
+                    <span className="values">{property.value}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* <div className="img-frame">
