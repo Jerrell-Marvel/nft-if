@@ -1,0 +1,139 @@
+@use "../../variables.scss" as var;
+// --- Styles ---
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var.$secondary-black;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #888;
+    }
+  }
+
+  .modal-body {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .bid-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      //   background-color: #f9f9f9;
+      padding: 12px 15px;
+      border-radius: 8px;
+
+      strong {
+        font-size: 1.1rem;
+      }
+    }
+
+    .bid-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-weight: bold;
+        color: white;
+      }
+
+      .input-with-currency {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+
+        input {
+          width: 100%;
+          border: none;
+          padding: 12px;
+          font-size: 1rem;
+          background: transparent;
+          outline: none;
+          // Hide number input spinners
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          color: white;
+        }
+
+        span {
+          padding-right: 15px;
+          font-weight: bold;
+          color: white;
+        }
+      }
+
+      .error-text {
+        color: var.$error-red;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid var.$border-gray;
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cancel-button {
+      background-color: #f0f0f0;
+      color: #333;
+      background-image: none;
+    }
+
+    .submit-button {
+      background-color: #007bff;
+      color: white;
+    }
+  }
+}

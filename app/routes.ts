@@ -16,4 +16,12 @@ export default [
   route("/purchase/bid/:nftId", "pages/purchase/bid/Bid.tsx"),
   route("/cart", "pages/cart/Cart.tsx"),
   route("/profile", "pages/profile/Profile.tsx"),
+  route(
+    "/purchase/collection/:collectionId",
+    "pages/purchase-collection/PurchaseCollection.tsx"
+  ),
+  route(
+    "/purchase/bid/collection/:collectionId",
+    "pages/purchase-collection/bidCollection.tsx"
+  ),
 ] satisfies RouteConfig;

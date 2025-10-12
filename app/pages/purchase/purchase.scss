@@ -85,6 +85,7 @@
     .title {
       display: flex;
       flex-direction: column;
+      line-height: 1.5;
       h1 {
         font-size: 2rem;
       }
@@ -93,8 +94,8 @@
         // font-size: 0.875rem;
         display: flex;
         color: #60a5fa;
-        margin-bottom: 1rem;
-        gap: 1rem;
+        // margin-bottom: 1rem;
+        // gap: 1rem;
       }
     }
 

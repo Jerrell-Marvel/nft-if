@@ -1,11 +1,30 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import "./bid.scss";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import BidModal from "~/components/bid-modal/BidModal";
 
 // const nftProperty = {
 //     idToken: "12313123123",
 //     alamatPemilik:"0xe123123123",
 
 // }
+
+const data = {
+  id: 2,
+  nft_details: {
+    title: "Cyber Cityscape #22",
+    description:
+      "A glimpse into the neon-drenched streets of a futuristic metropolis. This piece immerses the viewer in a world of towering skyscrapers, holographic advertisements that flicker in the perpetual twilight, and flying vehicles that weave through the canyons of steel and glass. The rain-slicked streets reflect the vibrant glow, creating a stunning visual of a high-tech, dystopian future.",
+    image_url: "/images/Cyber-Cityscape.jpg",
+    status: "available",
+    price: "0.8 ETH",
+    creator: "NeoPixel",
+    owner: "NeoPixel",
+  },
+  is_auction: false,
+  auction_info: null,
+};
 
 const nftProperties = [
   {
@@ -27,13 +46,31 @@ const nftProperties = [
 ];
 
 export default function Bid() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const [currentBid, setCurrentBid] = useState<number>(0.5);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
+  const navigate = useNavigate();
+
+  const handleBidSuccess = (newBidAmount: number) => {
+    console.log(`New bid placed: ${newBidAmount} ETH`);
+    setCurrentBid(newBidAmount); // Update the current bid price
+    toast.success("Item has been added to the cart.");
+
+    setTimeout(() => {
+      navigate("/cart"); // This runs after 1 second
+    }, 1000);
+    closeModal(); // Close the modal
+  };
   const { nftId } = useParams();
   return (
     <main className="bid-page main-container nav-padding">
       {/* <h3>NFT ID : {nftId}</h3> */}
       <div className="left-container">
         <div className="img-frame">
-          <img src="/2.jpg" className="img-item" />
+          <img src={data.nft_details.image_url} className="img-item" />
         </div>
 
         <div className="details">
@@ -53,16 +90,16 @@ export default function Bid() {
 
       <div className="right-container">
         <div className="title">
-          <span className="creator">Made by: Artisan Combs</span>
-          <h1>Sisir</h1>
-          <span className="creator">Owned by: The Heritage Store</span>
+          <span className="creator">Made by: {data.nft_details.creator}</span>
+          <h1>{data.nft_details.title}</h1>
+          <span className="creator">Owned by: {data.nft_details.owner}</span>
         </div>
 
         <div className="price-container">
           <div className="bid-container">
             <div className="left-wrapper">
               <h2>Current Highest Bid</h2>
-              <p className="price">Price: 800 USD</p>
+              <p className="price">Price: 0.3 ETH</p>
               <span className="creator">by: The Authentic</span>
             </div>
 
@@ -72,9 +109,15 @@ export default function Bid() {
             </div>
           </div>
 
-          <Link to={"/cart"}>
-            <button className="btn">Place a bid</button>
-          </Link>
+          <button className="btn" onClick={openModal}>
+            Place a bid
+          </button>
+          <BidModal
+            show={isModalOpen}
+            onClose={closeModal}
+            currentBid={currentBid}
+            onBidSubmit={handleBidSuccess}
+          />
         </div>
 
         <div className="description">
