@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
+import { toast } from "react-toastify";
 import { useRef, useState } from "react";
 import "./purchaseCollection.scss";
 import { Navigation, Pagination } from "swiper/modules";
@@ -91,6 +92,7 @@ export default function PurchaseCollection() {
     nftDataShow[0].nft_details.creator
   );
   const [index, setIndex] = useState<number>(1);
+  const navigate = useNavigate();
   return (
     <>
       <main className="purchase-collection-page main-container nav-padding">
@@ -293,9 +295,18 @@ export default function PurchaseCollection() {
           <div className="price-container">
             <span className="price">Price: 0.5 ETH</span>
 
-            <Link to={"/cart"}>
-              <button className="btn">Add to cart</button>
-            </Link>
+            <button
+              className="btn"
+              onClick={() => {
+                toast.success("Item has been added to the cart.");
+
+                setTimeout(() => {
+                  navigate("/cart"); // This runs after 1 second
+                }, 1000);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
 
           <div className="title">

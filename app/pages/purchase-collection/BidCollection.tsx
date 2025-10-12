@@ -1,10 +1,12 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useRef, useState } from "react";
 import "./bidCollection.scss";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import jsonCollectionNftData from "../../nft-collection-data.json";
+import BidModal from "~/components/bid-modal/BidModal";
+import { toast } from "react-toastify";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -76,6 +78,25 @@ const nftProperties = [
 // ];
 
 export default function BidCollection() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const [currentBid, setCurrentBid] = useState<number>(0.5);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
+  const navigate = useNavigate();
+
+  // This function would be called when a bid is successfully placed
+  const handleBidSuccess = (newBidAmount: number) => {
+    console.log(`New bid placed: ${newBidAmount} ETH`);
+    setCurrentBid(newBidAmount); // Update the current bid price
+    toast.success("Item has been added to the cart.");
+
+    setTimeout(() => {
+      navigate("/cart"); // This runs after 1 second
+    }, 1000);
+    closeModal(); // Close the modal
+  };
   const { nftId } = useParams();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
@@ -304,9 +325,15 @@ export default function BidCollection() {
               </div>
             </div>
 
-            <Link to={"/cart"}>
-              <button className="btn">Place a bid</button>
-            </Link>
+            <button className="btn" onClick={openModal}>
+              Place a bid
+            </button>
+            <BidModal
+              show={isModalOpen}
+              onClose={closeModal}
+              currentBid={currentBid}
+              onBidSubmit={handleBidSuccess}
+            />
           </div>
 
           <div className="title">
