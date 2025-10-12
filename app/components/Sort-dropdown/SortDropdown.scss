@@ -1,0 +1,97 @@
+
+@use "../../variables.scss" as var;
+.sort-dropdown {
+  position: relative;
+  display: inline-block;
+  
+  .sort-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var.$secondary-black;
+    border: 1px solid #555555;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: #2a2a2a;
+      border-color: #555;
+    }
+    
+    &.active {
+      background: #2a2a2a;
+      border-color: #666;
+    }
+    
+    .sort-label {
+      white-space: nowrap;
+    }
+    
+    .arrow {
+      font-size: 10px;
+      transition: transform 0.2s ease;
+      
+      &.up {
+        transform: rotate(180deg);
+      }
+      
+      &.down {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  
+  .sort-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: var.$secondary-black;
+    border: 1px solid #555555;
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 200px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    .sort-dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: left;
+      font-family: inherit;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background: #2a2a2a;
+      }
+      
+      
+      &.active {
+        background: #2a2a2a;
+        color: #3b82f6;
+        
+        .checkmark {
+          color: #3b82f6;
+          font-weight: bold;
+        }
+      }
+      
+      .checkmark {
+        font-size: 12px;
+      }
+    }
+  }
+}
