@@ -1,43 +1,43 @@
-import React, { useState } from "react";
-import "./FilterModal.scss";
-import { useNavigate } from "react-router";
+import React, { useState } from 'react'
+import './FilterModal.scss'
+import { useNavigate } from 'react-router'
 
 type FilterModalProps = {
-  show: boolean;
-  onClose: () => void;
-};
+  show: boolean
+  onClose: () => void
+}
 
 const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
-  const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(0);
-  const navigate = useNavigate();
+  const [minPrice, setMinPrice] = useState<number>(0)
+  const [maxPrice, setMaxPrice] = useState<number>(0)
+  const navigate = useNavigate()
 
   if (!show) {
-    return null;
+    return null
   }
 
   const handleContentClick = (e: React.MouseEvent<HTMLDivElement>): void => {
-    e.stopPropagation();
-  };
+    e.stopPropagation()
+  }
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newMinPrice = e.target.value;
-    setMinPrice(+newMinPrice);
+    const newMinPrice = e.target.value
+    setMinPrice(+newMinPrice)
 
     if (Number(newMinPrice) > Number(maxPrice)) {
-      setMaxPrice(+newMinPrice);
+      setMaxPrice(+newMinPrice)
     }
-  };
+  }
 
   const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newMaxPrice = e.target.value;
+    const newMaxPrice = e.target.value
     // if (!minPrice || Number(newMaxPrice) >= Number(minPrice)) {
-    setMaxPrice(+newMaxPrice);
+    setMaxPrice(+newMaxPrice)
     if (Number(minPrice) > Number(newMaxPrice)) {
-      setMinPrice(+newMaxPrice);
+      setMinPrice(+newMaxPrice)
     }
     // }
-  };
+  }
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -50,6 +50,16 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
         </div>
 
         <div className="modal-body">
+          {/* Collections Filter */}
+          <div className="filter-section">
+            <h3>Search</h3>
+            <input
+              type="search"
+              placeholder="Search NFT"
+              className="search-input"
+            />
+          </div>
+
           {/* Status Filter */}
           <div className="filter-section">
             <h3>Status</h3>
@@ -60,12 +70,12 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
               <label>
                 <input type="checkbox" /> On Auction
               </label>
-              <label>
+              {/* <label>
                 <input type="checkbox" /> New
               </label>
               <label>
                 <input type="checkbox" /> Has Offers
-              </label>
+              </label> */}
             </div>
           </div>
 
@@ -88,22 +98,14 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
                 onChange={handleMaxPriceChange}
                 min={0}
               />
-              <select>
+
+              <span>ETH</span>
+              {/* <select>
                 <option>ETH</option>
                 <option>WETH</option>
                 <option>SOL</option>
-              </select>
+              </select> */}
             </div>
-          </div>
-
-          {/* Collections Filter */}
-          <div className="filter-section">
-            <h3>Collections</h3>
-            <input
-              type="search"
-              placeholder="Search collections..."
-              className="search-input"
-            />
           </div>
 
           {/* Chains Filter */}
@@ -131,8 +133,8 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
           <button
             className="btn apply-button"
             onClick={() => {
-              navigate("/");
-              onClose();
+              navigate('/')
+              onClose()
             }}
           >
             Apply Filters
@@ -140,7 +142,7 @@ const FilterModal: React.FC<FilterModalProps> = ({ show, onClose }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FilterModal;
+export default FilterModal
