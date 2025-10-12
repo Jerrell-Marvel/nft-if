@@ -8,6 +8,8 @@ import "swiper/css";
 import "./home.scss";
 import jsonNftData from "../../nft-data.json";
 import jsonCollectionNftData from "../../nft-collection-data.json";
+import Filter from "~/components/icons/filter/Filter";
+import FilterModal from "~/components/filter-modal/FilterModal";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -40,6 +42,11 @@ export default function Home() {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const paginationRef = useRef(null);
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openModal = (): void => setIsModalOpen(true);
+  const closeModal = (): void => setIsModalOpen(false);
 
   const getActiveDisplay = () => {
     const displayValue = searchParams.get("display");
@@ -91,6 +98,7 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
+      <FilterModal show={isModalOpen} onClose={closeModal} />
       <main className="home-page main-container nav-padding">
         <div className="left-container">
           <div>
@@ -182,7 +190,10 @@ export default function Home() {
               {getActiveDisplay() === "single" ? "Collections" : "Single"}
             </button> */}
           </div>
-
+          <div className="filter-container">
+            <span>Showing result of "..."</span>
+            <Filter onClick={openModal} />
+          </div>
           <Swiper
             // Pass modules
             modules={[Navigation, Pagination]}
