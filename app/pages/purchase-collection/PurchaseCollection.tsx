@@ -90,13 +90,14 @@ export default function PurchaseCollection() {
   const [creator, setCreator] = useState<string | null>(
     nftDataShow[0].nft_details.creator
   );
+  const [index, setIndex] = useState<number>(1);
   return (
     <>
-      <main className="purchase-page main-container nav-padding">
+      <main className="purchase-collection-page main-container nav-padding">
         {/* <h3>NFT ID : {nftId}</h3> */}
 
         <div className="left-container">
-          <h2>Collection 1</h2>
+          {/* <h2>Collection 1</h2> */}
           <Swiper
             // Pass modules
             modules={[Navigation, Pagination]}
@@ -139,6 +140,7 @@ export default function PurchaseCollection() {
                 setDescription(currentData.nft_details.description);
                 setTitle(currentData.nft_details.title);
                 setCreator(currentData.nft_details.creator);
+                setIndex(currentIndex + 1);
               }
             }}
           >
@@ -279,20 +281,28 @@ export default function PurchaseCollection() {
         </div>
 
         <div className="right-container">
-          <div className="title">
-            <span className="creator">Made by: {creator}</span>
-            <h1>{title}</h1>
-            <span className="creator">Owned by: The Heritage Store</span>
+          <div className="collection-title-container">
+            <div className="title">
+              <h1 className="collection">Collection 2</h1>
+            </div>
+            <div className="index">
+              #{index}/{nftDataShow.length}
+            </div>
           </div>
 
           <div className="price-container">
-            <span className="price">Price: 1.000 USD</span>
+            <span className="price">Price: 0.5 ETH</span>
 
             <Link to={"/cart"}>
               <button className="btn">Add to cart</button>
             </Link>
           </div>
 
+          <div className="title">
+            <span className="creator">Made by: {creator}</span>
+            <h1>{title}</h1>
+            <span className="creator">Owned by: The Heritage Store</span>
+          </div>
           <div className="description">
             <h3>Description</h3>
             {/* <p>

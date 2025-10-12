@@ -20,4 +20,8 @@ export default [
     "/purchase/collection/:collectionId",
     "pages/purchase-collection/PurchaseCollection.tsx"
   ),
+  route(
+    "/purchase/bid/collection/:collectionId",
+    "pages/purchase-collection/bidCollection.tsx"
+  ),
 ] satisfies RouteConfig;

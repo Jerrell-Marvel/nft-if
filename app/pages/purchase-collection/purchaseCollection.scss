@@ -1,5 +1,5 @@
 @use "../../variables.scss" as var;
-.purchase-page {
+.purchase-collection-page {
   background-color: var.$primary-black;
   color: white;
   min-height: 100vh;
@@ -222,19 +222,28 @@
     border: 1px solid #374151; /* Gray 700 */
     border-radius: 0.5rem;
     padding: 1.5rem;
+    .collection-title-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .title {
       display: flex;
       flex-direction: column;
-      h1 {
+      gap: 0.8rem;
+      .collection {
         font-size: 2rem;
+      }
+      h1 {
+        font-size: 1.5rem;
       }
       .creator {
         // align-items: center;
         // font-size: 0.875rem;
         display: flex;
         color: #60a5fa;
-        margin-bottom: 1rem;
-        gap: 1rem;
+        // margin-bottom: 1rem;
+        // gap: 1rem;
       }
     }
 
@@ -245,6 +254,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      line-height: 1.5;
     }
 
     .description {
