@@ -13,10 +13,10 @@ export default function Profile() {
 
         <img className="profile-avatar" src="/1.jpg" alt="Profile Avatar" />
 
+        <h1>Username</h1>
+
         <div className="wallet-info">
-          <p className="wallet-address gradient-text">
-            Wallet address: {walletAddress}
-          </p>
+          <p className="wallet-address">Wallet address: {walletAddress}</p>
           <button
             className="copy-icon"
             onClick={() => {

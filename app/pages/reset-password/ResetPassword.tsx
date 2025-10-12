@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import "./ResetPassword.scss";
-import EmailInput from "~/components/email-input/EmailInput";
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import './ResetPassword.scss'
+import EmailInput from '~/components/email-input/EmailInput'
+import { isValidEmail } from 'utils/validator'
 
 export default function ResetPasswordPage() {
-  const [isShowNotif, setIsShowNotif] = useState(false);
+  const [isShowNotif, setIsShowNotif] = useState(false)
 
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
   return (
     <div className="reset-password-page nav-padding">
       <div className="container">
@@ -23,14 +24,15 @@ export default function ResetPasswordPage() {
 
         <button
           onClick={() => {
-            setIsShowNotif(true);
-            navigate("/reset-password/form");
+            setIsShowNotif(true)
+            navigate('/reset-password/form')
           }}
-          className="btn"
+          className={`btn ${!email || !isValidEmail(email) ? 'disabled-btn' : ''}`}
+          disabled={!email || !isValidEmail(email) ? true : false}
         >
           Reset
         </button>
       </div>
     </div>
-  );
+  )
 }
