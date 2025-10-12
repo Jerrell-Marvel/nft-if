@@ -81,7 +81,7 @@ export default function TopBar() {
               </Link>
               <div className="balance-container">
                 <span className="balance-label">Balance</span>
-                <span className="balance-amount">-</span>
+                <span className="balance-amount">20.4 ETH</span>
               </div>
               <Link to={"/profile"}>
                 <img
