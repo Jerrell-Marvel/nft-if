@@ -180,7 +180,7 @@ export default function PurchaseCollection() {
               ref={navigationPrevRef}
               className="custom-button custom-button-prev"
             >
-              left
+              &lt;
             </div>
             <div
               ref={paginationRef}
@@ -190,7 +190,7 @@ export default function PurchaseCollection() {
               ref={navigationNextRef}
               className="custom-button custom-button-next"
             >
-              right
+              &gt;
             </div>
           </div>
           <div className="details">
@@ -305,14 +305,14 @@ export default function PurchaseCollection() {
               <div className="list-item">
                 <span>Artisan Combs</span>
                 <span>Elysian Artisans</span>
-                <span>900 USD</span>
+                <span>3 ETH</span>
                 <span>19-09-2025</span>
               </div>
 
               <div className="list-item">
                 <span>Elysian Artisans</span>
                 <span>The Heritage Store</span>
-                <span>950 USD</span>
+                <span>2.7 ETH</span>
                 <span>29-09-2025</span>
               </div>
             </div>

@@ -14,10 +14,7 @@ import SortDropdown from "~/components/Sort-dropdown/SortDropdown";
 import type { SortOption } from "~/components/Sort-dropdown/SortDropdown";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
 }
 
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
@@ -27,19 +24,14 @@ const nftData2 = jsonNftData.slice(8, 16);
 const nftData3 = jsonNftData.slice(16);
 const nftData = [nftData1, nftData2, nftData3];
 
-const nftCollectionData = [
-  jsonCollectionNftData,
-  jsonCollectionNftData,
-  jsonCollectionNftData,
-];
+const nftCollectionData = [jsonCollectionNftData, jsonCollectionNftData, jsonCollectionNftData];
 type NftData = (typeof nftData)[0][0];
 type NftCollectionData = (typeof nftCollectionData)[0][0];
 
 export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedNft, setSelectedNft] = useState<NftData | null>(nftData[0][0]);
-  const [selectedCollectionNft, setSelectedCollectionNft] =
-    useState<NftCollectionData | null>(nftCollectionData[0][0]);
+  const [selectedCollectionNft, setSelectedCollectionNft] = useState<NftCollectionData | null>(nftCollectionData[0][0]);
 
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
@@ -78,15 +70,7 @@ export default function Home() {
           el: paginationRef.current,
           type: "fraction",
           renderFraction: function (currentClass, totalClass) {
-            return (
-              '<span class="' +
-              currentClass +
-              '"></span>' +
-              " of " +
-              '<span class="' +
-              totalClass +
-              '"></span>'
-            );
+            return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
           },
         }}
         onBeforeInit={(swiper) => {
@@ -101,7 +85,10 @@ export default function Home() {
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 1</SwiperSlide>
       </Swiper>
-      <FilterModal show={isModalOpen} onClose={closeModal} />
+      <FilterModal
+        show={isModalOpen}
+        onClose={closeModal}
+      />
       <main className="home-page main-container nav-padding">
         <div className="left-container">
           <div>
@@ -109,11 +96,7 @@ export default function Home() {
 
             <div className="nft-desc-container">
               <img
-                src={
-                  getActiveDisplay() === "single"
-                    ? selectedNft?.nft_details.image_url
-                    : selectedCollectionNft?.items[0].nft_details.image_url
-                }
+                src={getActiveDisplay() === "single" ? selectedNft?.nft_details.image_url : selectedCollectionNft?.items[0].nft_details.image_url}
                 className="img-item"
               />
 
@@ -136,22 +119,12 @@ export default function Home() {
                         <div className="auct-wrapper">
                           <div className="detail-item">
                             <p>Current bid :</p>
-                            <p>
-                              {
-                                selectedCollectionNft?.auction_details
-                                  ?.highest_bid
-                              }
-                            </p>
+                            <p>{selectedCollectionNft?.auction_details?.highest_bid}</p>
                           </div>
 
                           <div className="detail-item">
                             <p>Time :</p>
-                            <p>
-                              {
-                                selectedCollectionNft?.auction_details
-                                  ?.ending_soonest
-                              }
-                            </p>
+                            <p>{selectedCollectionNft?.auction_details?.ending_soonest}</p>
                           </div>
                         </div>
                       </>
@@ -197,15 +170,11 @@ export default function Home() {
           </div>
 
           {getActiveDisplay() === "collection" ? (
-            <Link
-              to={`/purchase/${selectedCollectionNft?.is_auction ? "bid/" : ""}collection/${selectedCollectionNft?.group_id}`}
-            >
+            <Link to={`/purchase/${selectedCollectionNft?.is_auction ? "bid/" : ""}collection/${selectedCollectionNft?.group_id}`}>
               <button className="btn">Detail</button>
             </Link>
           ) : (
-            <Link
-              to={`/purchase/${selectedNft?.is_auction ? "bid/" : ""}${selectedNft?.id}`}
-            >
+            <Link to={`/purchase/${selectedNft?.is_auction ? "bid/" : ""}${selectedNft?.id}`}>
               <button className="btn">Detail</button>
             </Link>
           )}
@@ -231,11 +200,7 @@ export default function Home() {
 
           {/* Updated filter container with sort dropdown */}
           <div className="filter-container">
-            {searchParams.get("q") ? (
-              <span>Showing result of "{searchParams.get("q")}"</span>
-            ) : (
-              <span></span>
-            )}
+            {searchParams.get("q") ? <span>Showing result of "{searchParams.get("q")}"</span> : <span></span>}
 
             <div className="controls-wrapper">
               <SortDropdown
@@ -257,15 +222,7 @@ export default function Home() {
               el: paginationRef.current,
               type: "fraction",
               renderFraction: function (currentClass, totalClass) {
-                return (
-                  '<span class="' +
-                  currentClass +
-                  '"></span>' +
-                  " of " +
-                  '<span class="' +
-                  totalClass +
-                  '"></span>'
-                );
+                return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
               },
             }}
             onBeforeInit={(swiper) => {
@@ -357,14 +314,17 @@ export default function Home() {
               ref={navigationPrevRef}
               className="custom-button custom-button-prev"
             >
-              left
+              &lt;
             </div>
-            <div ref={paginationRef} className="custom-pagination"></div>
+            <div
+              ref={paginationRef}
+              className="custom-pagination"
+            ></div>
             <div
               ref={navigationNextRef}
               className="custom-button custom-button-next"
             >
-              right
+              &gt;
             </div>
           </div>
         </div>

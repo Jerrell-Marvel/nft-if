@@ -138,14 +138,14 @@ export default function Purchase() {
             <div className="list-item">
               <span>Artisan Combs</span>
               <span>Elysian Artisans</span>
-              <span>900 USD</span>
+              <span>3 ETH</span>
               <span>19-09-2025</span>
             </div>
 
             <div className="list-item">
               <span>Elysian Artisans</span>
               <span>The Heritage Store</span>
-              <span>950 USD</span>
+              <span>2.7 ETH</span>
               <span>29-09-2025</span>
             </div>
           </div>
