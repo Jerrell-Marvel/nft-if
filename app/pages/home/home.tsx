@@ -10,6 +10,8 @@ import jsonNftData from "../../nft-data.json";
 import jsonCollectionNftData from "../../nft-collection-data.json";
 import Filter from "~/components/icons/filter/Filter";
 import FilterModal from "~/components/filter-modal/FilterModal";
+import SortDropdown from "~/components/Sort-dropdown/SortDropdown";
+import type { SortOption } from "~/components/Sort-dropdown/SortDropdown";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
@@ -35,9 +37,8 @@ export default function Home() {
   const navigationNextRef = useRef(null);
   const paginationRef = useRef(null);
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [currentSort, setCurrentSort] = useState<SortOption>("newest");
 
   const openModal = (): void => setIsModalOpen(true);
   const closeModal = (): void => setIsModalOpen(false);
@@ -94,10 +95,6 @@ export default function Home() {
             <h1 className="gradient-text">{selectedNft?.nft_details.title}</h1>
 
             <div className="nft-desc-container">
-              {/* <img
-                src={selectedNft?.nft_details.image_url}
-                className="img-item"
-              /> */}
               <img
                 src={getActiveDisplay() === "single" ? selectedNft?.nft_details.image_url : selectedCollectionNft?.items[0].nft_details.image_url}
                 className="img-item"
@@ -199,38 +196,35 @@ export default function Home() {
             >
               Collection
             </p>
-            {/* <p className="gradient-text">Display : {getActiveDisplay()}</p>
-            <button
-              className="btn"
-              onClick={changeDisplay}
-            >
-              {getActiveDisplay() === "single" ? "Collections" : "Single"}
-            </button> */}
           </div>
+          
+          {/* Updated filter container with sort dropdown */}
           <div className="filter-container">
             {searchParams.get("q") ? <span>Showing result of "{searchParams.get("q")}"</span> : null}
-
-            <Filter onClick={openModal} />
+            
+            <div className="controls-wrapper">
+              <SortDropdown 
+                currentSort={currentSort}
+                onSortChange={setCurrentSort}
+              />
+              <Filter onClick={openModal} />
+            </div>
           </div>
+
           <Swiper
-            // Pass modules
             modules={[Navigation, Pagination]}
             className="mySwiper"
-            // Configure Navigation
             navigation={{
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
             }}
-            // Configure Pagination
             pagination={{
               el: paginationRef.current,
               type: "fraction",
-              // Custom render function for the fraction
               renderFraction: function (currentClass, totalClass) {
                 return '<span class="' + currentClass + '"></span>' + " of " + '<span class="' + totalClass + '"></span>';
               },
             }}
-            // This is important: it re-initializes Swiper after the refs are mounted
             onBeforeInit={(swiper) => {
               //@ts-ignore
               swiper.params.navigation.prevEl = navigationPrevRef.current;
@@ -241,15 +235,10 @@ export default function Home() {
             }}
           >
             {getActiveDisplay() === "single"
-              ? nftData.map((nftList) => {
+              ? nftData.map((nftList, pageIndex) => {
                   return (
-                    <SwiperSlide>
-                      <div
-                        className="img-container"
-                        // style={{
-                        //   backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
-                        // }}
-                      >
+                    <SwiperSlide key={pageIndex}>
+                      <div className="img-container">
                         {nftList.map((data) => {
                           return (
                             <div
@@ -282,15 +271,10 @@ export default function Home() {
                     </SwiperSlide>
                   );
                 })
-              : nftCollectionData.map((nftCollectionDataPage) => {
+              : nftCollectionData.map((nftCollectionDataPage, pageIndex) => {
                   return (
-                    <SwiperSlide>
-                      <div
-                        className="img-container"
-                        // style={{
-                        //   backgroundColor: getActiveDisplay() === "collection" ? "salmon" : "blue",
-                        // }}
-                      >
+                    <SwiperSlide key={pageIndex}>
+                      <div className="img-container">
                         {nftCollectionDataPage.map((group) => {
                           return (
                             <div
@@ -305,7 +289,6 @@ export default function Home() {
                                     behavior: "smooth",
                                   });
                                 }
-                                // setSelectedNft(group);
                                 setSelectedCollectionNft(group);
                               }}
                             >
@@ -318,9 +301,6 @@ export default function Home() {
 
                               <p>{group.group_name}</p>
                             </div>
-                            // group.items.map((nftData)=>{
-
-                            // })
                           );
                         })}
                       </div>
