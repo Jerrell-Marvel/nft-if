@@ -6,6 +6,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import jsonCollectionNftData from "../../nft-collection-data.json";
+import { retriveCart } from "utils/cart";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -247,6 +248,22 @@ export default function PurchaseCollection() {
               className="btn"
               onClick={() => {
                 toast.success("Item has been added to the cart.");
+
+                const newCart = retriveCart();
+
+                newCart.push({
+                  id: null,
+                  name: firstGroup.group_name,
+                  image_url: firstGroup.items[0].nft_details.image_url,
+                  price: firstGroup.price,
+                  is_auction: false,
+                  group_id: firstGroup.group_id,
+                  current_bid: null,
+                  your_bid: null,
+                  time: null,
+                });
+
+                localStorage.setItem("cart", JSON.stringify(newCart));
 
                 setTimeout(() => {
                   navigate("/cart"); // This runs after 1 second

@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import jsonCollectionNftData from "../../nft-collection-data.json";
 import BidModal from "~/components/bid-modal/BidModal";
 import { toast } from "react-toastify";
+import { retriveCart } from "utils/cart";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -97,6 +98,22 @@ export default function BidCollection() {
   const handleBidSuccess = (newBidAmount: number) => {
     console.log(`New bid placed: ${newBidAmount} ETH`);
     setCurrentBid(newBidAmount);
+
+    const newCart = retriveCart();
+
+    newCart.push({
+      id: null,
+      name: firstGroup.group_name,
+      image_url: firstGroup.items[0].nft_details.image_url,
+      price: firstGroup.price,
+      is_auction: true,
+      group_id: firstGroup.group_id,
+      current_bid: newBidAmount,
+      your_bid: newBidAmount,
+      time: firstGroup.auction_details?.ending_soonest,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
     toast.success("Item has been added to the cart.");
 
     setTimeout(() => {

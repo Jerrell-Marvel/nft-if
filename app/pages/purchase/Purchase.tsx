@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import jsonNftData from "../../nft-data.json";
 import { useEffect, useState } from "react";
 import type { json } from "stream/consumers";
+import { retriveCart } from "utils/cart";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -40,6 +41,8 @@ export default function Purchase() {
 
   useEffect(() => {
     const nftData = jsonNftData.find((nftData) => nftData.id === parseInt(nftId!));
+
+    console.log(nftData);
 
     setData(nftData);
   }, []);
@@ -92,9 +95,21 @@ export default function Purchase() {
             className="btn"
             onClick={() => {
               toast.success("Item has been added to the cart.");
-              const cart = retriveCart();
+              const newCart = retriveCart();
 
-              cart.push();
+              newCart.push({
+                id: data.id,
+                name: data.nft_details.title,
+                image_url: data.nft_details.image_url,
+                price: data.nft_details.price,
+                is_auction: false,
+                group_id: null,
+                current_bid: null,
+                your_bid: null,
+                time: null,
+              });
+
+              localStorage.setItem("cart", JSON.stringify(newCart));
 
               setTimeout(() => {
                 navigate("/cart"); // This runs after 1 second
