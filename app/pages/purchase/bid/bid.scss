@@ -227,3 +227,32 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .bid-page {
+    display: block;
+    position: static;
+
+    .left-container {
+      position: static;
+      height: fit-content;
+      margin-bottom: 1rem;
+    }
+
+    .right-container {
+      position: static;
+
+      // .swiper-slide {
+      //   .img-container {
+      //     grid-template-columns: repeat(2, 1fr);
+      //   }
+      // }
+
+      // .swiper-slide {
+      //   .img-container {
+      //     grid-template-columns: repeat(2, 1fr) !important;
+      //   }
+      // }
+    }
+  }
+}
