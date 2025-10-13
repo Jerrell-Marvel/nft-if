@@ -12,7 +12,7 @@
   align-self: center;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
+  column-gap: 2rem;
   min-height: 100vh;
   height: fit-content;
 

@@ -13,7 +13,7 @@
   align-self: center;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
+  column-gap: 2rem;
   height: fit-content;
 
   h2 {
@@ -159,36 +159,36 @@
   }
 }
 
-.back-button-container {
-  background-color: var.$primary-black;
-  width: 100%;
+// .back-button-container {
+//   background-color: var.$primary-black;
+//   width: 100%;
 
-  margin: 0 auto;
-  padding: 1rem;
-  box-sizing: border-box;
-  // border: red 1px solid;
+//   margin: 0 auto;
+//   padding: 1rem;
+//   box-sizing: border-box;
+//   // border: red 1px solid;
 
-  .back-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    // padding: 0.75rem 1.5rem;
+//   .back-button {
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 0.5rem;
+//     // padding: 0.75rem 1.5rem;
 
-    font-size: 1rem;
-    transition: all 0.2s ease;
+//     font-size: 1rem;
+//     transition: all 0.2s ease;
 
-    // background-color: var.$tertiary-black;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
+//     // background-color: var.$tertiary-black;
+//     border: none;
+//     border-radius: 8px;
+//     color: white;
+//     cursor: pointer;
 
-    &:hover {
-      background: var.$secondary-black;
-      border-color: #555;
-    }
-  }
-}
+//     &:hover {
+//       background: var.$secondary-black;
+//       border-color: #555;
+//     }
+//   }
+// }
 @media screen and (max-width: 768px) {
   .purchase-page {
     display: block;

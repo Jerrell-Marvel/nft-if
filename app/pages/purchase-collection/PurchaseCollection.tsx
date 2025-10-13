@@ -94,15 +94,15 @@ export default function PurchaseCollection() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="back-button-container nav-padding">
-        <button
-          className="back-button"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
-      </div>
-      <main className="purchase-collection-page main-container">
+      <main className="purchase-collection-page main-container nav-padding">
+        <div className="back-button-container">
+          <button
+            className="back-button"
+            onClick={() => navigate(-1)}
+          >
+            &lt; Back
+          </button>
+        </div>
         {/* <h3>NFT ID : {nftId}</h3> */}
 
         <div className="left-container">

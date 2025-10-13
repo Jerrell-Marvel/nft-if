@@ -53,16 +53,16 @@ export default function Purchase() {
 
   return (
     <>
-      <div className="back-button-container nav-padding">
-        <button
-          className="back-button"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
-      </div>
-      <main className="purchase-page main-container ">
+      <main className="purchase-page main-container nav-padding">
         {/* <h3>NFT ID : {nftId}</h3> */}
+        <div className="back-button-container">
+          <button
+            className="back-button"
+            onClick={() => navigate("/")}
+          >
+            &lt; Back
+          </button>
+        </div>
 
         <div className="left-container">
           <div className="img-frame">
