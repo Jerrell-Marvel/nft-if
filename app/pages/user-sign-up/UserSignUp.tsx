@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import EmailInput from "~/components/email-input/EmailInput";
 import PasswordInput from "~/components/password-input/PasswordInput";
 import { isValidEmail } from "utils/validator";
+import { toast } from "react-toastify";
 
 export default function UserSignUpPage() {
   let navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function UserSignUpPage() {
   };
 
   return (
-    <div className="user-sign-up-page">
+    <div className="user-sign-up-page nav-padding">
       <div className="main-container">
         {/* <img className="img-item" src="1.jpg" alt="" /> */}
         <div className="img-item"></div>
@@ -97,6 +98,7 @@ export default function UserSignUpPage() {
 
           <button
             onClick={() => {
+              toast.success("Account successfully created");
               navigate("/sign-in");
             }}
             className={`btn ${!checkIsFormValid() ? "disabled-btn" : ""}`}

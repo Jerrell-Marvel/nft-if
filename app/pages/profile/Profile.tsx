@@ -1,17 +1,21 @@
-import { useNavigate } from 'react-router'
-import './profile.scss'
-import { toast } from 'react-toastify'
+import { useNavigate } from "react-router";
+import "./profile.scss";
+import { toast } from "react-toastify";
 
 export default function Profile() {
-  let navigate = useNavigate()
-  let walletAddress = '0xe123123131'
+  let navigate = useNavigate();
+  let walletAddress = "0xe123123131";
 
   return (
     <main className="profile-page nav-padding">
       <div className="main-container">
         <h1 className="gradient-text">Profile</h1>
 
-        <img className="profile-avatar" src="/1.jpg" alt="Profile Avatar" />
+        <img
+          className="profile-avatar"
+          src="/1.jpg"
+          alt="Profile Avatar"
+        />
 
         <h1>Username</h1>
 
@@ -20,11 +24,14 @@ export default function Profile() {
           <button
             className="copy-icon"
             onClick={() => {
-              navigator.clipboard.writeText(walletAddress)
-              toast.success('Copied!')
+              navigator.clipboard.writeText(walletAddress);
+              toast.success("Copied!");
             }}
           >
-            <img src="/copy-icon.png" alt="Copy Icon" />
+            <img
+              src="/copy-icon.png"
+              alt="Copy Icon"
+            />
           </button>
         </div>
 
@@ -34,7 +41,10 @@ export default function Profile() {
           <button className="btn">My account</button>
           <button
             onClick={() => {
-              navigate('/sign-in')
+              localStorage.removeItem("profile");
+              window.location.reload();
+              window.location.href = "/sign-in";
+              navigate("/sign-in");
             }}
             className="btn"
           >
@@ -43,5 +53,5 @@ export default function Profile() {
         </div>
       </div>
     </main>
-  )
+  );
 }
