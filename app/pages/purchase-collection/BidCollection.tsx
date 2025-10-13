@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import jsonCollectionNftData from "../../nft-collection-data.json";
 import BidModal from "~/components/bid-modal/BidModal";
 import { toast } from "react-toastify";
+import { retriveCart } from "utils/cart";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -97,6 +98,22 @@ export default function BidCollection() {
   const handleBidSuccess = (newBidAmount: number) => {
     console.log(`New bid placed: ${newBidAmount} ETH`);
     setCurrentBid(newBidAmount);
+
+    const newCart = retriveCart();
+
+    newCart.unshift({
+      id: null,
+      name: firstGroup.group_name,
+      image_url: firstGroup.items[0].nft_details.image_url,
+      price: firstGroup.price,
+      is_auction: true,
+      group_id: firstGroup.group_id,
+      current_bid: newBidAmount,
+      your_bid: newBidAmount,
+      time: firstGroup.auction_details?.ending_soonest,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
     toast.success("Item has been added to the cart.");
 
     setTimeout(() => {
@@ -257,7 +274,7 @@ export default function BidCollection() {
         <div className="right-container">
           <div className="collection-title-container">
             <div className="title">
-              <h1 className="collection">Collection 2</h1>
+              <h1 className="collection">{firstGroup.group_name}</h1>
             </div>
             <div className="index">
               #{index}/{nftDataShow.length}
@@ -268,7 +285,7 @@ export default function BidCollection() {
             <div className="bid-container">
               <div className="left-wrapper">
                 <h2>Current Highest Bid</h2>
-                <p className="price">Price: 0.5 ETH</p>
+                <p className="price">Price: {firstGroup.auction_details?.highest_bid}</p>
                 <span className="creator">by: The Authentic</span>
               </div>
 
@@ -287,7 +304,7 @@ export default function BidCollection() {
             <BidModal
               show={isModalOpen}
               onClose={closeModal}
-              currentBid={currentBid}
+              currentBid={+firstGroup.auction_details?.highest_bid.split(" ")[0]!}
               onBidSubmit={handleBidSuccess}
             />
           </div>

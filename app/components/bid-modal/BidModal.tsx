@@ -9,12 +9,7 @@ type BidModalProps = {
   onBidSubmit: (newBidAmount: number) => void;
 };
 
-const BidModal: React.FC<BidModalProps> = ({
-  show,
-  onClose,
-  currentBid,
-  onBidSubmit,
-}) => {
+const BidModal: React.FC<BidModalProps> = ({ show, onClose, currentBid, onBidSubmit }) => {
   const [yourBid, setYourBid] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -49,11 +44,20 @@ const BidModal: React.FC<BidModalProps> = ({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={handleContentClick}>
+    <div
+      className="modal-backdrop"
+      onClick={onClose}
+    >
+      <div
+        className="modal-content"
+        onClick={handleContentClick}
+      >
         <div className="modal-header">
           <h2>Place your Bid</h2>
-          <button className="close-button" onClick={onClose}>
+          <button
+            className="close-button"
+            onClick={onClose}
+          >
             &times;
           </button>
         </div>
@@ -82,10 +86,16 @@ const BidModal: React.FC<BidModalProps> = ({
         </div>
 
         <div className="modal-footer">
-          <button className="btn cancel-button" onClick={onClose}>
+          <button
+            className="btn cancel-button"
+            onClick={onClose}
+          >
             Cancel
           </button>
-          <button className="btn submit-button" onClick={handleSubmit}>
+          <button
+            className="btn submit-button"
+            onClick={handleSubmit}
+          >
             Submit Bid
           </button>
         </div>

@@ -1,38 +1,58 @@
-import { useState } from 'react'
-import Delete from '~/components/icons/delete/Delete'
-import './cart.scss'
+import { useEffect, useState } from "react";
+import Delete from "~/components/icons/delete/Delete";
+import "./cart.scss";
+import { retriveCart } from "utils/cart";
 
 type Nft = {
-  name: string
-  imgUrl: string
-}
+  name: string;
+  imgUrl: string;
+};
 
 const initialNfts: Nft[] = [
   {
-    name: 'kucing tidur',
-    imgUrl: '1.jpg',
+    name: "kucing tidur",
+    imgUrl: "1.jpg",
   },
   {
-    name: 'kucing bangun',
-    imgUrl: '2.jpg',
+    name: "kucing bangun",
+    imgUrl: "2.jpg",
   },
   {
-    name: 'soto kuah',
-    imgUrl: '3.jpg',
+    name: "soto kuah",
+    imgUrl: "3.jpg",
   },
   {
-    name: 'baso kuah',
-    imgUrl: '4.jpg',
+    name: "baso kuah",
+    imgUrl: "4.jpg",
   },
-]
+];
+
+type CartNft = {
+  id: number | null;
+  name: string;
+  image_url: string;
+  price: number | null;
+  is_auction: boolean;
+  group_id: number | null;
+  current_bid: number | null;
+  your_bid: number | null;
+  time: number | null;
+};
 
 export default function Cart() {
-  const [cartItems, setCartItems] = useState<Nft[]>(initialNfts)
+  const [cartItems, setCartItems] = useState<CartNft[]>([]);
+
+  useEffect(() => {
+    const cart = retriveCart();
+
+    setCartItems(cart);
+  }, []);
 
   const handleDeleteItem = (indexToDelete: number) => {
-    const newCartItems = cartItems.filter((_, index) => index !== indexToDelete)
-    setCartItems(newCartItems)
-  }
+    const newCartItems = cartItems.filter((_, index) => index !== indexToDelete);
+    localStorage.setItem("cart", JSON.stringify(newCartItems));
+    setCartItems(newCartItems);
+  };
 
   return (
     <main className="cart-page nav-padding">
@@ -44,18 +64,32 @@ export default function Cart() {
         ) : (
           <>
             {cartItems.map((nft, index) => (
-              <div className="cart-item" key={nft.name}>
-                <img src={nft.imgUrl} className="" alt={nft.name} />
+              <div
+                className="cart-item"
+                key={nft.name}
+              >
+                <img
+                  src={nft.image_url}
+                  className=""
+                  alt={nft.name}
+                />
                 <div className="cart-item-info">
                   <div className="cart-item-info-left">
                     <div className="cart-item-left-top-info">
                       <h2 className="gradient-text">{nft.name}</h2>
                     </div>
-                    <div className="bid-info">
-                      <p>Current Bid: ~</p>
-                      <p>Your Bid: ~</p>
-                      <p>Time: ~</p>
-                    </div>
+
+                    {nft.is_auction ? (
+                      <div className="bid-info">
+                        <p>Current Bid: {nft.current_bid} ETH</p>
+                        <p>Your Bid: {nft.your_bid} ETH</p>
+                        <p>Time: {nft.time}</p>
+                      </div>
+                    ) : (
+                      <div className="bid-info">
+                        <p>Price: {nft.price}</p>
+                      </div>
+                    )}
                   </div>
                   <div
                     className="delete-container"
@@ -68,10 +102,17 @@ export default function Cart() {
             ))}
 
             <div className="checkout">
-              <label htmlFor="wallet" className="gradient-text">
+              <label
+                htmlFor="wallet"
+                className="gradient-text"
+              >
                 Choose a wallet:
               </label>
-              <select className="explore-button" name="wallet" id="wallet">
+              <select
+                className="explore-button"
+                name="wallet"
+                id="wallet"
+              >
                 <option value="wallet 1">Wallet 1</option>
                 <option value="wallet 2">Wallet 2</option>
                 <option value="wallet 3">Wallet 3</option>
@@ -83,5 +124,5 @@ export default function Cart() {
         )}
       </div>
     </main>
-  )
+  );
 }

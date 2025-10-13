@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import BidModal from "~/components/bid-modal/BidModal";
 import jsonNftData from "../../../nft-data.json";
+import { retriveCart } from "utils/cart";
 
 // const nftProperty = {
 //     idToken: "12313123123",
@@ -71,6 +72,22 @@ export default function Bid() {
   const handleBidSuccess = (newBidAmount: number) => {
     console.log(`New bid placed: ${newBidAmount} ETH`);
     setCurrentBid(newBidAmount);
+
+    const newCart = retriveCart();
+
+    newCart.unshift({
+      id: data.id,
+      name: data.nft_details.title,
+      image_url: data.nft_details.image_url,
+      price: data.nft_details.price,
+      group_id: null,
+      is_auction: true,
+      current_bid: newBidAmount,
+      your_bid: newBidAmount,
+      time: data.auction_info?.time,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
     toast.success("Item has been added to the cart.");
 
     setTimeout(() => {
@@ -138,7 +155,7 @@ export default function Bid() {
           <BidModal
             show={isModalOpen}
             onClose={closeModal}
-            currentBid={currentBid}
+            currentBid={0.3}
             onBidSubmit={handleBidSuccess}
           />
         </div>

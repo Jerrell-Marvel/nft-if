@@ -1,4 +1,4 @@
-const retriveCart = () => {
+export const retriveCart = () => {
   const cart = localStorage.getItem("cart");
 
   if (!cart) {
