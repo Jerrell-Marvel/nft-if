@@ -242,7 +242,7 @@ export default function PurchaseCollection() {
           </div>
 
           <div className="price-container">
-            <span className="price">Price: 0.5 ETH</span>
+            <span className="price">Price: {firstGroup.price}</span>
 
             <button
               className="btn"
@@ -251,7 +251,7 @@ export default function PurchaseCollection() {
 
                 const newCart = retriveCart();
 
-                newCart.push({
+                newCart.unshift({
                   id: null,
                   name: firstGroup.group_name,
                   image_url: firstGroup.items[0].nft_details.image_url,

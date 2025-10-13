@@ -89,7 +89,7 @@ export default function Purchase() {
         </div>
 
         <div className="price-container">
-          <span className="price">Price: 0.3 ETH</span>
+          <span className="price">Price: {data.nft_details.price}</span>
 
           <button
             className="btn"
@@ -97,7 +97,7 @@ export default function Purchase() {
               toast.success("Item has been added to the cart.");
               const newCart = retriveCart();
 
-              newCart.push({
+              newCart.unshift({
                 id: data.id,
                 name: data.nft_details.title,
                 image_url: data.nft_details.image_url,

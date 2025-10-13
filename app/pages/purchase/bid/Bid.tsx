@@ -75,7 +75,7 @@ export default function Bid() {
 
     const newCart = retriveCart();
 
-    newCart.push({
+    newCart.unshift({
       id: data.id,
       name: data.nft_details.title,
       image_url: data.nft_details.image_url,
@@ -155,7 +155,7 @@ export default function Bid() {
           <BidModal
             show={isModalOpen}
             onClose={closeModal}
-            currentBid={currentBid}
+            currentBid={0.3}
             onBidSubmit={handleBidSuccess}
           />
         </div>
