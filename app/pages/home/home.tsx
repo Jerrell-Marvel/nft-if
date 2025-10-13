@@ -200,7 +200,7 @@ export default function Home() {
           
           {/* Updated filter container with sort dropdown */}
           <div className="filter-container">
-            {searchParams.get("q") ? <span>Showing result of "{searchParams.get("q")}"</span> : null}
+            {searchParams.get("q") ? <span>Showing result of "{searchParams.get("q")}"</span> : <span></span>}
             
             <div className="controls-wrapper">
               <SortDropdown 

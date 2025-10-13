@@ -108,6 +108,11 @@
       height: 2rem;
       position: relative;
       align-items: center;
+      .controls-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
     }
 
     .mySwiper {
@@ -287,8 +292,6 @@
           grid-template-columns: repeat(2, 1fr) !important;
         }
       }
-
     }
   }
 }
-
