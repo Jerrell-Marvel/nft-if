@@ -13,10 +13,6 @@ import FilterModal from "~/components/filter-modal/FilterModal";
 import SortDropdown from "~/components/Sort-dropdown/SortDropdown";
 import type { SortOption } from "~/components/Sort-dropdown/SortDropdown";
 
-export function meta({}: Route.MetaArgs) {
-  return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
-}
-
 const imgUrls = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
 
 const nftData1 = jsonNftData.slice(0, 8);
