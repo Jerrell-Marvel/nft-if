@@ -53,114 +53,114 @@ export default function Purchase() {
 
   return (
     <>
-    <div className="back-button-container nav-padding">
-      <button 
-        className="back-button"
-        onClick={() => navigate(-1)}
-      >
-        Back
-      </button>
-    </div>
-    <main className="purchase-page main-container ">
-      {/* <h3>NFT ID : {nftId}</h3> */}
-
-      <div className="left-container">
-        <div className="img-frame">
-          <img
-            src={data.nft_details.image_url}
-            className="img-item"
-          />
-        </div>
-
-        <div className="details">
-          <h2>Token Details</h2>
-          <div className="details-content">
-            {nftProperties.map((property) => {
-              return (
-                <div
-                  key={property.displayName}
-                  className="categories"
-                >
-                  <span className="labels">{property.displayName}</span>
-                  <span className="values">{property.value}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      <div className="back-button-container nav-padding">
+        <button
+          className="back-button"
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </button>
       </div>
+      <main className="purchase-page main-container ">
+        {/* <h3>NFT ID : {nftId}</h3> */}
 
-      <div className="right-container">
-        <div className="title">
-          <span className="creator">Made by: {data.nft_details.creator}</span>
-          <h1>{data.nft_details.title}</h1>
-          <span className="creator">Owned by: {data.nft_details.owner}</span>
-        </div>
-
-        <div className="price-container">
-          <span className="price">Price: {data.nft_details.price}</span>
-
-          <button
-            className="btn"
-            onClick={() => {
-              toast.success("Item has been added to the cart.");
-              const newCart = retriveCart();
-
-              newCart.unshift({
-                id: data.id,
-                name: data.nft_details.title,
-                image_url: data.nft_details.image_url,
-                price: data.nft_details.price,
-                is_auction: false,
-                group_id: null,
-                current_bid: null,
-                your_bid: null,
-                time: null,
-              });
-
-              localStorage.setItem("cart", JSON.stringify(newCart));
-
-              setTimeout(() => {
-                navigate("/cart"); // This runs after 1 second
-              }, 1000);
-            }}
-          >
-            Add to cart
-          </button>
-        </div>
-
-        <div className="description">
-          <h3>Description</h3>
-          <p>{data.nft_details.description}</p>
-        </div>
-
-        <div className="history">
-          <h2>History Transaction</h2>
-          <div className="list-header">
-            <span>From</span>
-            <span>To</span>
-            <span>Price</span>
-            <span>Date</span>
+        <div className="left-container">
+          <div className="img-frame">
+            <img
+              src={data.nft_details.image_url}
+              className="img-item"
+            />
           </div>
 
-          <div className="list-item-container">
-            <div className="list-item">
-              <span>Artisan Combs</span>
-              <span>Elysian Artisans</span>
-              <span>3 ETH</span>
-              <span>19-09-2025</span>
-            </div>
-
-            <div className="list-item">
-              <span>Elysian Artisans</span>
-              <span>The Heritage Store</span>
-              <span>2.7 ETH</span>
-              <span>29-09-2025</span>
+          <div className="details">
+            <h2>Token Details</h2>
+            <div className="details-content">
+              {nftProperties.map((property) => {
+                return (
+                  <div
+                    key={property.displayName}
+                    className="categories"
+                  >
+                    <span className="labels">{property.displayName}</span>
+                    <span className="values">{property.value}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
-      </div>
-    </main>
+
+        <div className="right-container">
+          <div className="title">
+            <span className="creator">Made by: {data.nft_details.creator}</span>
+            <h1>{data.nft_details.title}</h1>
+            <span className="creator">Owned by: {data.nft_details.owner}</span>
+          </div>
+
+          <div className="price-container">
+            <span className="price">Price: {data.nft_details.price}</span>
+
+            <button
+              className="btn"
+              onClick={() => {
+                toast.success("Item has been added to the cart.");
+                const newCart = retriveCart();
+
+                newCart.unshift({
+                  id: data.id,
+                  name: data.nft_details.title,
+                  image_url: data.nft_details.image_url,
+                  price: data.nft_details.price,
+                  is_auction: false,
+                  group_id: null,
+                  current_bid: null,
+                  your_bid: null,
+                  time: null,
+                });
+
+                localStorage.setItem("cart", JSON.stringify(newCart));
+
+                setTimeout(() => {
+                  navigate("/cart"); // This runs after 1 second
+                }, 1000);
+              }}
+            >
+              Add to cart
+            </button>
+          </div>
+
+          <div className="description">
+            <h3>Description</h3>
+            <p>{data.nft_details.description}</p>
+          </div>
+
+          <div className="history">
+            <h2>History Transaction</h2>
+            <div className="list-header">
+              <span>From</span>
+              <span>To</span>
+              <span>Price</span>
+              <span>Date</span>
+            </div>
+
+            <div className="list-item-container">
+              <div className="list-item">
+                <span>Artisan Combs</span>
+                <span>Elysian Artisans</span>
+                <span>3 ETH</span>
+                <span>19-09-2025</span>
+              </div>
+
+              <div className="list-item">
+                <span>Elysian Artisans</span>
+                <span>The Heritage Store</span>
+                <span>2.7 ETH</span>
+                <span>29-09-2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }

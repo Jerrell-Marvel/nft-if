@@ -324,3 +324,34 @@
     }
   }
 }
+
+.back-button-container {
+  background-color: var.$primary-black;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  // border: red 1px solid;
+
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+
+    font-size: 1rem;
+    transition: all 0.2s ease;
+
+    background-color: var.$tertiary-black;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: var.$secondary-black;
+      border-color: #555;
+    }
+  }
+}
