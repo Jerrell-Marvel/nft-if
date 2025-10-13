@@ -97,7 +97,7 @@ export default function UserSignUpPage() {
 
           <button
             onClick={() => {
-              navigate("/");
+              navigate("/sign-in");
             }}
             className={`btn ${!checkIsFormValid() ? "disabled-btn" : ""}`}
             disabled={!checkIsFormValid()}
